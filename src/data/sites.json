@@ -1,35 +1,39 @@
 [
   {
-    "id": "personal-blog",
-    "title": "个人博客",
-    "description": "这是我的个人博客，分享技术、生活和学习心得。",
-    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=personal%20blog%20website%20responsive%20design%20multiple%20devices%20clean%20interface&image_size=landscape_16_9",
-    "technologies": ["Vue3", "Nuxt", "Markdown", "Tailwind CSS"],
+    "id": "blog",
+    "title": "博客",
+    "description": "这是我的博客，分享技术、生活和学习心得。",
+    "image": "https://api.fis.ink/mc",
+    "technologies": ["Fuwari", "Astro"],
     "url": "https://blog.fis.ink",
-    "githubUrl": "https://blog.fis.ink/",
-    "featured": true,
-    "createdAt": "2024-01-15"
+    "featured": true
   },
   {
-    "id": "code-snippets",
-    "title": "代码片段",
-    "description": "代码片段分享，天天有一些不一样的玩法！",
-    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=code%20snippets%20sharing%20website%20clean%20interface%20responsive%20design&image_size=landscape_16_9",
-    "technologies": ["React", "Next.js", "Prism.js", "MongoDB"],
-    "url": "https://snippets.fis.ink",
-    "githubUrl": "https://github.com/fishcpy/code-snippets",
-    "featured": true,
-    "createdAt": "2024-02-20"
+    "id": "pclce-web",
+    "title": "pclce-web",
+    "description": "这是我给pcl社区版制作的官网，屎山一坨💩。",
+    "image": "https://api.fis.ink/mc",
+    "technologies": ["Html", "Css", "Js"],
+    "url": "https://pclce-web.demo.fis.ink",
+    "githubUrl": "https://github.com/PCL-Community/PCL2CE-web",
+    "featured": true
   },
   {
-    "id": "photo-gallery",
-    "title": "生活相册",
-    "description": "记录生活中的美好瞬间，分享摄影作品和旅行见闻。",
-    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=photo%20gallery%20website%20beautiful%20layout%20responsive%20design%20multiple%20devices&image_size=landscape_16_9",
-    "technologies": ["Vue3", "Vite", "Cloudinary", "CSS Grid"],
-    "url": "https://photos.fis.ink",
-    "githubUrl": "https://github.com/fishcpy/photo-gallery",
-    "featured": false,
-    "createdAt": "2024-03-10"
+    "id": "node",
+    "title": "节点监控",
+    "description": "这是我的节点监控，包含了所有服务器。",
+    "image": "https://api.fis.ink/mc",
+    "technologies": [],
+    "url": "https://node.fishcpy.top",
+    "featured": false
+  },
+  {
+    "id": "status",
+    "title": "网站可用性监控",
+    "description": "这是我的网站可用性监控，你可以在里面查看我的站点稳定性。",
+    "image": "https://api.fis.ink/mc",
+    "technologies": [],
+    "url": "https://blog.fis.ink",
+    "featured": false
   }
 ]
