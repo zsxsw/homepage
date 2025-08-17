@@ -92,7 +92,7 @@ const remainingDays = computed(() => {
 })
 
 // 定时器更新当前日期
-let timer: NodeJS.Timeout
+let timer: number
 
 onMounted(() => {
   timer = setInterval(() => {

@@ -160,6 +160,96 @@
       </div>
     </section>
 
+    <!-- Featured Sites Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            我的网站
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            一些在线的网站项目，欢迎访问体验
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          <Card
+            v-for="site in featuredSites"
+            :key="site.id"
+            variant="shadow"
+            padding="none"
+            hover
+            class="overflow-hidden transform hover:-rotate-1 transition-transform duration-300"
+          >
+            <div class="aspect-video bg-gray-100 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+              <img
+                :src="site.image"
+                :alt="site.title"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ site.title }}</h3>
+                <div class="flex items-center text-green-600 dark:text-green-400">
+                  <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                  <span class="text-sm">在线</span>
+                </div>
+              </div>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">{{ site.description }}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  v-for="(tech, index) in site.technologies"
+                  :key="tech"
+                  :class="[
+                    'px-3 py-1 text-sm rounded-full transition-all duration-200',
+                    index % 2 === 0 
+                      ? 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 hover:bg-purple-200 dark:hover:bg-purple-800'
+                      : 'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 hover:bg-orange-200 dark:hover:bg-orange-800'
+                  ]"
+                >
+                  {{ tech }}
+                </span>
+              </div>
+              <div class="flex gap-4">
+                <a
+                  :href="site.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+                >
+                  <ExternalLink class="w-4 h-4 mr-1" />
+                  访问
+                </a>
+                <a
+                  v-if="site.githubUrl"
+                  :href="site.githubUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
+                >
+                  <Github class="w-4 h-4 mr-1" />
+                  代码
+                </a>
+              </div>
+            </div>
+          </Card>
+        </div>
+        
+        <div class="text-center mt-12">
+          <Button
+            variant="outline"
+            size="lg"
+            @click="$router.push('/sites')"
+            class="inline-flex items-center"
+          >
+            查看所有网站
+            <ArrowRight class="w-5 h-5 ml-2" />
+          </Button>
+        </div>
+      </div>
+    </section>
+
 
   </div>
 </template>
@@ -169,6 +259,7 @@ import { computed } from 'vue'
 import { Eye, Mail, Code, ArrowRight, ExternalLink, Github, Phone } from 'lucide-vue-next'
 import { usePersonalStore } from '@/stores/personal'
 import { useProjectsStore } from '@/stores/projects'
+import { useSitesStore } from '@/stores/sites'
 import Button from '@/components/ui/Button.vue'
 import Card from '@/components/ui/Card.vue'
 import TenYearPromise from '@/components/ui/TenYearPromise.vue'
@@ -176,7 +267,9 @@ import TenYearPromise from '@/components/ui/TenYearPromise.vue'
 
 const personalStore = usePersonalStore()
 const projectsStore = useProjectsStore()
+const sitesStore = useSitesStore()
 const featuredProjects = computed(() => projectsStore.featuredProjects)
+const featuredSites = computed(() => sitesStore.featuredSites)
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId)

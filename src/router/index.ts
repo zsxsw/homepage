@@ -3,6 +3,7 @@ import HomeView from '@/pages/HomeView.vue'
 import AboutView from '@/pages/AboutView.vue'
 import ArticlesView from '@/pages/ArticlesView.vue'
 import PortfolioView from '@/pages/PortfolioView.vue'
+import SitesView from '@/pages/SitesView.vue'
 import ContactView from '@/pages/ContactView.vue'
 
 // 定义路由配置
@@ -36,7 +37,15 @@ const routes = [
     name: 'portfolio',
     component: PortfolioView,
     meta: {
-      title: '作品集'
+      title: '项目作品'
+    }
+  },
+  {
+    path: '/sites',
+    name: 'sites',
+    component: SitesView,
+    meta: {
+      title: '我的网站'
     }
   },
   {

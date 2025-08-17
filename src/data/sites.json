@@ -1,0 +1,35 @@
+[
+  {
+    "id": "personal-blog",
+    "title": "个人博客",
+    "description": "这是我的个人博客，分享技术、生活和学习心得。",
+    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=personal%20blog%20website%20responsive%20design%20multiple%20devices%20clean%20interface&image_size=landscape_16_9",
+    "technologies": ["Vue3", "Nuxt", "Markdown", "Tailwind CSS"],
+    "url": "https://blog.fis.ink",
+    "githubUrl": "https://github.com/fishcpy/blog",
+    "featured": true,
+    "createdAt": "2024-01-15"
+  },
+  {
+    "id": "code-snippets",
+    "title": "代码片段",
+    "description": "代码片段分享，天天有一些不一样的玩法！",
+    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=code%20snippets%20sharing%20website%20clean%20interface%20responsive%20design&image_size=landscape_16_9",
+    "technologies": ["React", "Next.js", "Prism.js", "MongoDB"],
+    "url": "https://snippets.fis.ink",
+    "githubUrl": "https://github.com/fishcpy/code-snippets",
+    "featured": true,
+    "createdAt": "2024-02-20"
+  },
+  {
+    "id": "photo-gallery",
+    "title": "生活相册",
+    "description": "记录生活中的美好瞬间，分享摄影作品和旅行见闻。",
+    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=photo%20gallery%20website%20beautiful%20layout%20responsive%20design%20multiple%20devices&image_size=landscape_16_9",
+    "technologies": ["Vue3", "Vite", "Cloudinary", "CSS Grid"],
+    "url": "https://photos.fis.ink",
+    "githubUrl": "https://github.com/fishcpy/photo-gallery",
+    "featured": false,
+    "createdAt": "2024-03-10"
+  }
+]

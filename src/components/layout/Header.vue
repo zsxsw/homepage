@@ -103,7 +103,8 @@ const navigation = [
   { name: '首页', href: '/' },
   { name: '关于我', href: '/about' },
   { name: '文章', href: '/articles' },
-  { name: '作品集', href: '/portfolio' },
+  { name: '项目作品', href: '/portfolio' },
+  { name: '我的网站', href: '/sites' },
   { name: '联系我', href: '/contact' }
 ]
 </script>

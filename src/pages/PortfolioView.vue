@@ -4,10 +4,10 @@
     <section class="bg-gray-50 dark:bg-gray-800 py-20">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-          作品集
+          项目作品
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          一些做过的项目
+          一些做过的项目和开源作品
         </p>
       </div>
     </section>
