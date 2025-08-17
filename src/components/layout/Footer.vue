@@ -53,10 +53,7 @@
                 {{ personalStore.contactEmail }}
               </a>
             </li>
-            <li v-if="personalStore.info.phone" class="flex items-center space-x-2">
-              <Phone class="w-4 h-4 text-gray-400" />
-              <span class="text-gray-300">{{ personalStore.info.phone }}</span>
-            </li>
+
             <li class="flex items-center space-x-2">
               <MapPin class="w-4 h-4 text-gray-400" />
               <span class="text-gray-300">{{ personalStore.info.location }}</span>
@@ -79,7 +76,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, MessageCircle } from 'lucide-vue-next'
+import { Mail, MapPin, Github, Linkedin, Twitter, MessageCircle } from 'lucide-vue-next'
 import { usePersonalStore } from '@/stores/personal'
 
 const personalStore = usePersonalStore()
@@ -101,7 +98,6 @@ const iconMap = {
   twitter: Twitter,
   'message-circle': MessageCircle,
   mail: Mail,
-  phone: Phone,
   'map-pin': MapPin
 }
 
