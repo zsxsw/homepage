@@ -1,68 +1,22 @@
 [
   {
-    "id": "ecommerce-platform",
-    "title": "小商城项目",
-    "description": "给朋友做的一个小商城，前端用Vue3，后端Node.js。功能不算复杂，就是商品展示、购物车、下单这些基本的。踩了不少坑，但最后还是搞定了。",
-    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20online%20shop%20website%20product%20display%20shopping%20cart%20clean%20interface&image_size=landscape_16_9",
-    "technologies": ["Vue3", "TypeScript", "Node.js", "MongoDB"],
-    "demoUrl": "https://demo-ecommerce.example.com",
+    "id": "1",
+    "title": "个人主页",
+    "description": "就是本站啦",
+    "image": "https://api.fis.ink/mc",
+    "technologies": ["Vue3", "TypeScript"],
+    "demoUrl": "/",
     "githubUrl": "https://github.com/fishcpy/small-shop",
-    "featured": true,
-    "createdAt": "2024-01-15"
+    "featured": true
   },
   {
-    "id": "task-management",
-    "title": "待办事项工具",
-    "description": "自己用的一个任务管理工具，主要是记录日常的待办事项。用React写的，数据存在本地，简单实用。后来加了一些团队功能，现在几个朋友也在用。",
-    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20todo%20app%20task%20list%20clean%20interface%20minimal%20design&image_size=landscape_16_9",
-    "technologies": ["React", "TypeScript", "Express.js", "SQLite"],
-    "demoUrl": "https://demo-tasks.example.com",
-    "githubUrl": "https://github.com/fishcpy/todo-app",
-    "featured": true,
-    "createdAt": "2023-11-20"
-  },
-  {
-    "id": "weather-app",
-    "title": "天气查询小工具",
-    "description": "练手做的一个天气查询工具，调用了免费的天气API。界面比较简单，就是查查当天天气和未来几天的预报。主要是想试试Vue3的新特性。",
-    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20weather%20app%20basic%20interface%20weather%20cards%20minimal%20design&image_size=landscape_16_9",
-    "technologies": ["Vue3", "Vite", "Tailwind CSS", "Weather API"],
-    "demoUrl": "https://demo-weather.example.com",
-    "githubUrl": "https://github.com/fishcpy/weather-tool",
-    "featured": false,
-    "createdAt": "2023-09-10"
-  },
-  {
-    "id": "chat-app",
-    "title": "实时聊天应用",
-    "description": "学习WebSocket时做的一个简单聊天室，支持多人在线聊天。前端用React，后端用Socket.io。虽然功能简单，但学到了不少实时通信的知识。",
-    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20chat%20app%20real%20time%20messaging%20clean%20interface&image_size=landscape_16_9",
-    "technologies": ["React", "Socket.io", "Node.js", "Express"],
-    "demoUrl": "https://demo-chat.example.com",
-    "githubUrl": "https://github.com/fishcpy/chat-app",
-    "featured": false,
-    "createdAt": "2023-08-05"
-  },
-  {
-    "id": "blog-generator",
-    "title": "静态博客生成器",
-    "description": "用Python写的一个简单的静态博客生成器，支持Markdown文件转HTML。主要是想自己搭建博客时用，后来发现现成的工具更好用，但写这个过程学到了不少东西。",
-    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=static%20blog%20generator%20markdown%20to%20html%20simple%20interface&image_size=landscape_16_9",
-    "technologies": ["Python", "Markdown", "Jinja2", "CSS"],
-    "demoUrl": null,
-    "githubUrl": "https://github.com/fishcpy/blog-generator",
-    "featured": false,
-    "createdAt": "2023-06-12"
-  },
-  {
-    "id": "file-organizer",
-    "title": "文件整理工具",
-    "description": "桌面文件太乱了，写了个小工具自动按文件类型分类整理。用Python的tkinter做的GUI，虽然界面不太好看，但很实用。现在每天都在用。",
-    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=file%20organizer%20desktop%20app%20simple%20gui%20file%20management&image_size=landscape_16_9",
-    "technologies": ["Python", "tkinter", "os", "shutil"],
-    "demoUrl": null,
-    "githubUrl": "https://github.com/fishcpy/file-organizer",
-    "featured": false,
-    "createdAt": "2023-04-18"
+    "id": "2",
+    "title": "项目2",
+    "description": "项目2",
+    "image": "https://api.fis.ink/mc",
+    "technologies": [],
+    "demoUrl": "/",
+    "githubUrl": "https://github.com/fishcpy",
+    "featured": false
   }
 ]

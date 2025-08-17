@@ -86,7 +86,7 @@
             
             <!-- Experience Timeline -->
             <div>
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">工作经历</h3>
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">站点历程</h3>
               <div class="space-y-6">
                 <div v-for="(experience, index) in experiences" :key="index" class="relative">
                   <div class="flex items-start">

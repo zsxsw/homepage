@@ -1,6 +1,6 @@
 [
   {
-    "id": "blog",
+    "id": "1",
     "title": "博客",
     "description": "这是我的博客，分享技术、生活和学习心得。",
     "image": "https://api.fis.ink/mc",
@@ -9,7 +9,7 @@
     "featured": true
   },
   {
-    "id": "pclce-web",
+    "id": "2",
     "title": "pclce-web",
     "description": "这是我给pcl社区版制作的官网，屎山一坨💩。",
     "image": "https://api.fis.ink/mc",
@@ -19,7 +19,7 @@
     "featured": true
   },
   {
-    "id": "node",
+    "id": "4",
     "title": "节点监控",
     "description": "这是我的节点监控，包含了所有服务器。",
     "image": "https://api.fis.ink/mc",
@@ -28,7 +28,7 @@
     "featured": false
   },
   {
-    "id": "status",
+    "id": "3",
     "title": "网站可用性监控",
     "description": "这是我的网站可用性监控，你可以在里面查看我的站点稳定性。",
     "image": "https://api.fis.ink/mc",
