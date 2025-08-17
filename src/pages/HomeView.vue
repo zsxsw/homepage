@@ -15,7 +15,7 @@
             <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl">
               {{ personalStore.info.bio }}
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <Button
                 variant="primary"
                 size="lg"
@@ -25,6 +25,22 @@
                 <Eye class="w-5 h-5 mr-2" />
                 查看作品
               </Button>
+            </div>
+            
+            <!-- 站点链接 -->
+            <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+              <a
+                v-for="link in personalStore.info.socialLinks"
+                :key="link.platform"
+                :href="link.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+              >
+                <Github v-if="link.icon === 'github'" class="w-4 h-4 mr-2" />
+                <ExternalLink v-else-if="link.icon === 'globe'" class="w-4 h-4 mr-2" />
+                {{ link.platform }}
+              </a>
             </div>
           </div>
           
@@ -43,7 +59,21 @@
       </div>
     </section>
 
-
+    <!-- Ten Year Promise Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            十年之约
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            从2024年9月6日开始，记录这段代码人生
+          </p>
+        </div>
+        
+        <TenYearPromise />
+      </div>
+    </section>
 
     <!-- Featured Projects Section -->
     <section id="portfolio" class="py-20 bg-gray-50 dark:bg-gray-800">
@@ -141,6 +171,7 @@ import { usePersonalStore } from '@/stores/personal'
 import { useProjectsStore } from '@/stores/projects'
 import Button from '@/components/ui/Button.vue'
 import Card from '@/components/ui/Card.vue'
+import TenYearPromise from '@/components/ui/TenYearPromise.vue'
 
 
 const personalStore = usePersonalStore()
