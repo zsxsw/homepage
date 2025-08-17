@@ -93,7 +93,7 @@ const sites = [
     image: 'https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=personal%20blog%20website%20responsive%20design%20multiple%20devices%20clean%20interface&image_size=landscape_16_9',
     technologies: ['Vue3', 'Nuxt', 'Markdown', 'Tailwind CSS'],
     url: 'https://blog.fis.ink',
-    githubUrl: 'https://github.com/fishcpy/blog'
+    githubUrl: 'https://blog.fis.ink/'
   },
   {
     id: 'code-snippets',
