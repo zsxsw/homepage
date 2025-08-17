@@ -4,7 +4,6 @@ import AboutView from '@/pages/AboutView.vue'
 import ArticlesView from '@/pages/ArticlesView.vue'
 import PortfolioView from '@/pages/PortfolioView.vue'
 import SitesView from '@/pages/SitesView.vue'
-import ContactView from '@/pages/ContactView.vue'
 
 // 定义路由配置
 const routes = [
@@ -48,14 +47,7 @@ const routes = [
       title: '我的网站'
     }
   },
-  {
-    path: '/contact',
-    name: 'contact',
-    component: ContactView,
-    meta: {
-      title: '联系我'
-    }
-  }
+
 ]
 
 // 创建路由实例

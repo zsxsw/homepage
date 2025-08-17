@@ -1,80 +1,78 @@
 <template>
   <div class="bg-white dark:bg-gray-900">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 py-16">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-medium text-gray-900 dark:text-white mb-4">
           关于我
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          了解更多关于我的背景、经历和热情
+        <p class="text-gray-600 dark:text-gray-400">
+          一个喜欢折腾代码的人
         </p>
       </div>
     </section>
 
     <!-- Main Content -->
-    <section class="py-12">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <section class="pb-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
           <!-- Profile Image -->
           <div class="lg:col-span-1">
             <div class="sticky top-8">
-              <Card variant="glass" padding="lg" class="text-center">
-                <div class="mb-6">
-                  <img
-                    :src="personalStore.avatar"
-                    :alt="personalStore.fullName"
-                    class="w-48 h-48 rounded-full mx-auto object-cover mb-4"
-                  />
-                  <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                    {{ personalStore.fullName }}
-                  </h2>
-                  <p class="text-lg text-blue-600 dark:text-blue-400 mb-4">
-                    {{ personalStore.info.title }}
-                  </p>
-                  <div class="flex items-center justify-center text-gray-500 dark:text-gray-400 mb-6">
-                    <MapPin class="w-4 h-4 mr-2" />
-                    {{ personalStore.info.location }}
-                  </div>
+              <div class="text-center">
+                <img
+                  :src="personalStore.avatar"
+                  :alt="personalStore.fullName"
+                  class="w-32 h-32 rounded-full mx-auto object-cover mb-4"
+                />
+                <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-1">
+                  {{ personalStore.fullName }}
+                </h2>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                  {{ personalStore.info.title }}
+                </p>
+                <div class="flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm mb-6">
+                  <MapPin class="w-3 h-3 mr-1" />
+                  {{ personalStore.info.location }}
                 </div>
                 
-                <div class="space-y-4">
+                <div class="space-y-3">
                   <a
                     :href="`mailto:${personalStore.contactEmail}`"
-                    class="w-full inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    class="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                   >
                     <Mail class="w-4 h-4 mr-2" />
-                    发送邮件
+                    发邮件
                   </a>
                   
-                  <div class="flex justify-center space-x-4">
+                  <div class="flex justify-center space-x-3">
                     <a
                       v-for="link in personalStore.socialLinks"
                       :key="link.platform"
                       :href="link.url"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
                       :aria-label="link.platform"
                     >
-                      <component :is="getIcon(link.icon)" class="w-6 h-6" />
+                      <component :is="getIcon(link.icon)" class="w-5 h-5" />
                     </a>
                   </div>
                 </div>
-              </Card>
+              </div>
             </div>
           </div>
           
           <!-- Content -->
-          <div class="lg:col-span-2 space-y-8">
+          <div class="lg:col-span-3 space-y-12">
             <!-- Bio Section -->
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">关于我</h3>
-              <div class="prose prose-lg text-gray-600 dark:text-gray-300 max-w-none">
-                <p class="mb-4">
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">关于我</h3>
+              <div class="text-gray-600 dark:text-gray-400 space-y-4 leading-relaxed">
+                <p>
                   {{ personalStore.info.bio }}
                 </p>
-                <p class="mb-4">
+                <p>
                   写代码这事儿从大学就开始了，一开始纯粹是因为好奇心。
                   后来发现能用代码解决实际问题还挺有意思的，就一直坚持到现在。
                 </p>
@@ -88,68 +86,79 @@
             
             <!-- Experience Timeline -->
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">工作经历</h3>
-              <div class="space-y-8">
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">工作经历</h3>
+              <div class="space-y-6">
                 <div v-for="(experience, index) in experiences" :key="index" class="relative">
                   <div class="flex items-start">
                     <div class="flex-shrink-0">
-                      <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                        <Briefcase class="w-5 h-5 text-white" />
+                      <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"></div>
+                    </div>
+                    <div class="ml-4">
+                      <div class="pb-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+                          <h4 class="font-medium text-gray-900 dark:text-white">{{ experience.position }}</h4>
+                          <span class="text-sm text-gray-500 dark:text-gray-400">{{ experience.period }}</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">{{ experience.company }}</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{{ experience.description }}</p>
                       </div>
                     </div>
-                    <div class="ml-6">
-                      <Card variant="bordered" padding="lg" class="w-full">
-                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                          <h4 class="text-lg font-semibold text-gray-900 dark:text-white">{{ experience.position }}</h4>
-                          <span class="text-sm text-blue-600 dark:text-blue-400 font-medium">{{ experience.period }}</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-300 font-medium mb-2">{{ experience.company }}</p>
-                        <p class="text-gray-500 dark:text-gray-400">{{ experience.description }}</p>
-                      </Card>
-                    </div>
                   </div>
-                  <div v-if="index < experiences.length - 1" class="absolute left-5 top-10 w-px h-8 bg-gray-300 dark:bg-gray-600"></div>
+                  <div v-if="index < experiences.length - 1" class="absolute left-1 top-4 w-px h-6 bg-gray-200 dark:bg-gray-700"></div>
                 </div>
               </div>
             </div>
             
             <!-- Education -->
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">教育背景</h3>
-              <Card variant="glass" padding="lg">
-                <div class="flex items-start">
-                  <div class="flex-shrink-0">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <GraduationCap class="w-6 h-6 text-green-600" />
-                    </div>
-                  </div>
-                  <div class="ml-4">
-                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">计算机科学与技术</h4>
-                    <p class="text-gray-600 dark:text-gray-300 mb-2">2018-2022</p>
-                    <p class="text-gray-500 dark:text-gray-400">
-                      大学四年学了不少理论知识，但真正有用的还是自己课外折腾的那些项目。
-                      印象最深的是第一次用JavaScript做出一个能跑的网页，那种成就感至今难忘。
-                    </p>
-                  </div>
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">教育背景</h3>
+              <div class="flex items-start">
+                <div class="flex-shrink-0">
+                  <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"></div>
                 </div>
-              </Card>
+                <div class="ml-4">
+                  <h4 class="font-medium text-gray-900 dark:text-white mb-1">计算机科学与技术</h4>
+                  <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">2018-2022</p>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                    大学四年学了不少理论知识，但真正有用的还是自己课外折腾的那些项目。
+                    印象最深的是第一次用JavaScript做出一个能跑的网页，那种成就感至今难忘。
+                  </p>
+                </div>
+              </div>
             </div>
             
             <!-- Interests -->
             <div>
-              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">兴趣爱好</h3>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Card
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">兴趣爱好</h3>
+              <div class="flex flex-wrap gap-3">
+                <div
                   v-for="interest in interests"
                   :key="interest.name"
-                  variant="bordered"
-                  padding="md"
-                  hover
-                  class="text-center"
+                  class="flex items-center space-x-2 text-gray-600 dark:text-gray-400"
                 >
-                  <component :is="interest.icon" class="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-2" />
-                  <h4 class="font-medium text-gray-900 dark:text-white">{{ interest.name }}</h4>
-                </Card>
+                  <component :is="interest.icon" class="w-4 h-4" />
+                  <span class="text-sm">{{ interest.name }}</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Contact Section -->
+            <div>
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">联系我</h3>
+              <div class="space-y-3">
+                <div class="flex items-center text-gray-600 dark:text-gray-400">
+                  <Mail class="w-4 h-4 mr-3" />
+                  <a 
+                    :href="`mailto:${personalStore.contactEmail}`"
+                    class="hover:text-gray-900 dark:hover:text-white"
+                  >
+                    {{ personalStore.contactEmail }}
+                  </a>
+                </div>
+                <div class="flex items-center text-gray-600 dark:text-gray-400">
+                  <MapPin class="w-4 h-4 mr-3" />
+                  <span>{{ personalStore.info.location }}</span>
+                </div>
               </div>
             </div>
           </div>
