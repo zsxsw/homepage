@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-white dark:bg-gray-900 transition-colors duration-200">
+  <div class="bg-white dark:bg-gray-900">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 py-20">
+    <section class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 py-16">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
           联系我
@@ -10,7 +10,7 @@
     </section>
 
     <!-- Contact Content -->
-    <section class="py-20">
+    <section class="py-12">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Contact Info -->
         <div>
@@ -18,7 +18,7 @@
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">联系方式</h2>
           </div>
             
-          <div class="space-y-6">
+          <div class="space-y-4">
             <!-- Email -->
             <div class="backdrop-blur-lg bg-white/5 dark:bg-gray-800/5 border border-white/30 dark:border-gray-700/30 rounded-lg p-6 shadow-xl backdrop-saturate-150">
               <div class="flex items-start space-x-4">
@@ -40,24 +40,7 @@
               </div>
             </div>
             
-            <!-- Phone -->
-            <div class="backdrop-blur-sm bg-white/10 dark:bg-gray-800/10 border border-white/20 dark:border-gray-700/20 rounded-lg p-6">
-              <div class="flex items-start space-x-4">
-                <div class="flex-shrink-0">
-                  <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
-                    <Phone class="w-6 h-6 text-green-600 dark:text-green-400" />
-                  </div>
-                </div>
-                <div class="flex-1">
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">电话</h3>
-                  <p class="text-gray-600 dark:text-gray-300 mb-2">工作时间联系</p>
-                  <span class="text-gray-900 dark:text-white font-medium">
-                    {{ personalStore.info.phone || '+86 138-0000-0000' }}
-                  </span>
-                </div>
-              </div>
-            </div>
-            
+
             <!-- Location -->
             <div class="backdrop-blur-sm bg-white/10 dark:bg-gray-800/10 border border-white/20 dark:border-gray-700/20 rounded-lg p-6">
               <div class="flex items-start space-x-4">
@@ -111,7 +94,7 @@
               <Clock class="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-3" />
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">响应时间</h3>
               <p class="text-gray-600 dark:text-gray-300">
-                我通常会在 <span class="font-semibold text-blue-600 dark:text-blue-400">24小时内</span> 回复您的消息
+                我通常会在 <span class="font-semibold text-blue-600 dark:text-blue-400">24小时内</span> 回复你的消息
               </p>
             </div>
           </div>
@@ -122,7 +105,7 @@
 </template>
 
 <script setup lang="ts">
-import { Mail, Phone, MapPin, Users, Clock, Github, Linkedin, Twitter, MessageCircle } from 'lucide-vue-next'
+import { Mail, MapPin, Users, Clock, Github, Linkedin, Twitter, MessageCircle } from 'lucide-vue-next'
 import { usePersonalStore } from '@/stores/personal'
 
 const personalStore = usePersonalStore()

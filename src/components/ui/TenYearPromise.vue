@@ -46,7 +46,7 @@
        </div>
        <div class="w-full bg-white/20 rounded-full h-2 overflow-hidden">
          <div 
-           class="bg-gradient-to-r from-amber-400 to-amber-500 h-full rounded-full transition-all duration-1000 ease-out shadow-sm"
+           class="bg-gradient-to-r from-amber-400 to-amber-500 h-full rounded-full"
            :style="{ width: progress + '%' }"
          ></div>
        </div>

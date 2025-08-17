@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-white dark:bg-gray-900 transition-colors duration-200">
+  <div class="bg-white dark:bg-gray-900">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 py-20">
+    <section class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 py-16">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
           关于我
@@ -13,9 +13,9 @@
     </section>
 
     <!-- Main Content -->
-    <section class="py-20">
+    <section class="py-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <!-- Profile Image -->
           <div class="lg:col-span-1">
             <div class="sticky top-8">
@@ -66,7 +66,7 @@
           </div>
           
           <!-- Content -->
-          <div class="lg:col-span-2 space-y-12">
+          <div class="lg:col-span-2 space-y-8">
             <!-- Bio Section -->
             <div>
               <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">关于我</h3>

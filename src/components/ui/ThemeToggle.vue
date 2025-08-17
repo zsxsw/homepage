@@ -1,18 +1,14 @@
 <template>
   <button
     @click="toggleTheme"
-    class="relative p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+    class="p-2 rounded bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none"
     :title="isDark ? '切换到浅色模式' : '切换到深色模式'"
   >
-    <div class="relative w-5 h-5">
+    <div class="w-5 h-5">
       <!-- 太阳图标 (浅色模式) -->
       <svg
         v-show="!isDark"
-        class="absolute inset-0 w-5 h-5 text-yellow-500 transition-all duration-300 transform"
-        :class="{
-          'rotate-0 scale-100 opacity-100': !isDark,
-          'rotate-90 scale-0 opacity-0': isDark
-        }"
+        class="w-5 h-5 text-gray-600 dark:text-gray-400"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -28,11 +24,7 @@
       <!-- 月亮图标 (深色模式) -->
       <svg
         v-show="isDark"
-        class="absolute inset-0 w-5 h-5 text-blue-400 transition-all duration-300 transform"
-        :class="{
-          'rotate-0 scale-100 opacity-100': isDark,
-          '-rotate-90 scale-0 opacity-0': !isDark
-        }"
+        class="w-5 h-5 text-gray-600 dark:text-gray-400"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -45,15 +37,6 @@
         />
       </svg>
     </div>
-    
-    <!-- 切换动画背景 -->
-    <div 
-      class="absolute inset-0 rounded-lg transition-all duration-300"
-      :class="{
-        'bg-gradient-to-r from-yellow-400 to-orange-400 opacity-10': !isDark,
-        'bg-gradient-to-r from-blue-600 to-purple-600 opacity-10': isDark
-      }"
-    ></div>
   </button>
 </template>
 

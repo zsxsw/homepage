@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
+      <div class="text-center mb-8">
         <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
           我的文章
         </h1>
@@ -9,22 +9,28 @@
           记录一些想法
         </p>
         <div class="flex justify-center">
-          <a 
-            href="https://blog.fis.ink/rss.xml" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="inline-flex items-center px-4 py-2 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-lg hover:bg-orange-200 dark:hover:bg-orange-800 transition-colors text-sm font-medium"
-          >
-            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"/>
-            </svg>
-            RSS 订阅
-          </a>
+          <div class="bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg p-3 font-mono text-sm">
+            <span class="text-gray-600 dark:text-gray-400">RSS:</span>
+            <a 
+              href="https://blog.fis.ink/rss.xml" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="ml-2 text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              https://blog.fis.ink/rss.xml
+            </a>
+          </div>
         </div>
       </div>
 
       <div v-if="loading" class="flex justify-center items-center py-12">
-        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div class="flex items-center space-x-2">
+          <svg class="w-6 h-6 text-blue-600 dark:text-blue-400 animate-spin" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <span class="text-gray-600 dark:text-gray-400">正在加载文章...</span>
+        </div>
       </div>
 
       <div v-else-if="error" class="text-center py-12">
@@ -53,16 +59,16 @@
         </div>
       </div>
 
-      <div v-else class="space-y-8">
+      <div v-else class="space-y-6">
         <article 
           v-for="article in articles" 
           :key="article.id"
-          class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+          class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden"
         >
           <div class="p-8">
             <div class="flex items-start justify-between mb-4">
               <div class="flex-1">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                   <a :href="article.link" target="_blank" rel="noopener noreferrer" class="hover:underline">
                     {{ article.title }}
                   </a>
@@ -84,7 +90,7 @@
                 :href="article.link" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="ml-4 p-2 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                class="ml-4 p-2 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                 title="查看原文"
               >
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,7 +118,7 @@
                 :href="article.link" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors"
+                class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium"
               >
                 阅读全文
                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

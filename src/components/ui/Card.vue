@@ -39,10 +39,10 @@ const cardClasses = computed(() => {
   
   const variantClasses = {
     default: 'border border-gray-200 dark:border-gray-700',
-    bordered: 'border-2 border-gray-300 dark:border-gray-600',
-    shadow: 'shadow-md border border-gray-100 dark:border-gray-700 dark:shadow-gray-900/20 shadow-blue-500/5',
-    elevated: 'shadow-lg border border-gray-100 dark:border-gray-700 dark:shadow-gray-900/30 shadow-blue-500/10',
-    glass: 'backdrop-blur-lg bg-white/10 dark:bg-gray-800/10 border border-white/20 dark:border-gray-700/20 shadow-xl backdrop-saturate-150'
+    bordered: 'border border-gray-300 dark:border-gray-600',
+    shadow: 'border border-gray-200 dark:border-gray-700',
+    elevated: 'border border-gray-200 dark:border-gray-700',
+    glass: 'border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50'
   }
   
   const roundedClasses = {
@@ -53,7 +53,7 @@ const cardClasses = computed(() => {
     xl: 'rounded-xl'
   }
   
-  const hoverClasses = props.hover ? 'hover:shadow-lg hover:scale-[1.02] cursor-pointer hover:-rotate-1' : ''
+  const hoverClasses = props.hover ? 'hover:border-gray-300 dark:hover:border-gray-600 cursor-pointer' : ''
   
   return clsx(
     baseClasses,

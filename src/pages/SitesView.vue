@@ -1,80 +1,68 @@
 <template>
-  <div class="bg-white dark:bg-gray-900 transition-colors duration-200">
+  <div class="bg-white dark:bg-gray-900">
     <!-- Hero Section -->
-    <section class="bg-gray-50 dark:bg-gray-800 py-20">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-          我的所有网站
+    <section class="py-16 border-b border-gray-100 dark:border-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-medium text-gray-900 dark:text-white mb-3">
+          网站
         </h1>
-        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          以下这些是我创建的所有网站，点击下面的链接访问这些网站，探索我的工作！
+        <p class="text-gray-600 dark:text-gray-400">
+          一些做过的网站
         </p>
       </div>
     </section>
 
     <!-- Sites Grid -->
-    <section class="py-16">
+    <section class="py-12">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
             v-for="site in sites"
             :key="site.id"
-            variant="shadow"
-            padding="none"
-            class="group hover:shadow-xl transition-all duration-300 overflow-hidden"
+            class="border border-gray-200 dark:border-gray-700 rounded p-6"
           >
-            <div class="relative">
+            <div class="mb-4">
               <img
                 :src="site.image"
                 :alt="site.title"
-                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                class="w-full h-48 object-cover rounded border border-gray-100 dark:border-gray-700"
               />
-              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
             </div>
-            <div class="p-6">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {{ site.title }}
-                </h3>
-                <div class="flex items-center text-green-600 dark:text-green-400">
-                  <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  <span class="text-sm">在线</span>
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+              <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">
+                {{ site.title }}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
                 {{ site.description }}
               </p>
               <div class="flex flex-wrap gap-2 mb-4">
                 <span
                   v-for="tech in site.technologies"
                   :key="tech"
-                  class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md"
+                  class="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400 rounded"
                 >
                   {{ tech }}
                 </span>
               </div>
-              <div class="flex gap-3">
+              <div class="flex gap-4 text-sm">
                 <a
                   :href="site.url"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200"
+                  class="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
                 >
-                  <ExternalLink class="w-4 h-4 mr-2" />
-                  访问站点
+                  访问
                 </a>
                 <a
                   v-if="site.githubUrl"
                   :href="site.githubUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-lg transition-colors duration-200"
+                  class="text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300"
                 >
-                  <Github class="w-4 h-4" />
+                  代码
                 </a>
               </div>
-            </div>
-          </Card>
+          </div>
         </div>
       </div>
     </section>

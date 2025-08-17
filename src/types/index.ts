@@ -4,7 +4,6 @@ export interface PersonalInfo {
   bio: string;
   avatar: string;
   email: string;
-  phone?: string;
   location: string;
   socialLinks: SocialLink[];
 }

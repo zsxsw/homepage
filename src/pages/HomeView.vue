@@ -1,41 +1,27 @@
 <template>
-  <div class="bg-white dark:bg-gray-900 transition-colors duration-200">
+  <div class="bg-white dark:bg-gray-900">
     <!-- Hero Section -->
-    <section class="relative bg-gray-50 dark:bg-gray-800 py-20 lg:py-32">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section class="py-12 lg:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div class="text-center lg:text-left">
-            <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              嗨，我是
-              <span class="text-blue-600 dark:text-blue-400">{{ personalStore.fullName }}</span>
+            <h1 class="text-3xl lg:text-5xl font-medium text-gray-900 dark:text-white mb-4">
+              {{ personalStore.fullName }}
             </h1>
-            <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
               {{ personalStore.info.title }}
             </p>
-            <p class="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl">
+            <p class="text-gray-500 dark:text-gray-400 mb-6 max-w-xl">
               {{ personalStore.info.bio }}
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <Button
-                variant="primary"
-                size="lg"
-                @click="scrollToSection('portfolio')"
-                class="inline-flex items-center"
-              >
-                <Eye class="w-5 h-5 mr-2" />
-                查看作品
-              </Button>
-            </div>
-            
-            <!-- 站点链接 -->
-            <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+            <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
               <a
                 v-for="link in personalStore.info.socialLinks"
                 :key="link.platform"
                 :href="link.url"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+                class="inline-flex items-center px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white border border-gray-200 dark:border-gray-700 rounded hover:border-gray-300 dark:hover:border-gray-600"
               >
                 <Github v-if="link.icon === 'github'" class="w-4 h-4 mr-2" />
                 <ExternalLink v-else-if="link.icon === 'globe'" class="w-4 h-4 mr-2" />
@@ -45,56 +31,35 @@
           </div>
           
           <div class="flex justify-center lg:justify-end">
-            <div class="relative">
-              <div class="w-80 h-80 rounded-2xl overflow-hidden shadow-lg">
-                <img
-                  :src="personalStore.avatar"
-                  :alt="personalStore.fullName"
-                  class="w-full h-full object-cover"
-                />
-              </div>
+            <div class="w-64 h-64 rounded-lg overflow-hidden">
+              <img
+                :src="personalStore.avatar"
+                :alt="personalStore.fullName"
+                class="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Ten Year Promise Section -->
-    <section class="py-20 bg-white dark:bg-gray-900">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            十年之约
-          </h2>
-          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            从2024年9月6日开始，记录这段代码人生
-          </p>
-        </div>
-        
-        <TenYearPromise />
-      </div>
-    </section>
-
     <!-- Featured Projects Section -->
-    <section id="portfolio" class="py-20 bg-gray-50 dark:bg-gray-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            一些项目
+    <section id="portfolio" class="py-12 border-t border-gray-100 dark:border-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <h2 class="text-2xl font-medium text-gray-900 dark:text-white mb-3">
+            项目
           </h2>
-          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            平时折腾的一些东西，有些还在完善中
+          <p class="text-gray-600 dark:text-gray-400">
+            一些做过的东西
           </p>
         </div>
         
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-          <Card
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div
             v-for="project in featuredProjects"
             :key="project.id"
-            variant="shadow"
-            padding="none"
-            hover
-            class="overflow-hidden transform hover:rotate-1 transition-transform duration-300"
+            class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:border-gray-300 dark:hover:border-gray-600"
           >
             <div class="aspect-video bg-gray-100 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
               <img
@@ -108,27 +73,21 @@
               <p class="text-gray-600 dark:text-gray-300 mb-4">{{ project.description }}</p>
               <div class="flex flex-wrap gap-2 mb-4">
                 <span
-                  v-for="(tech, index) in project.technologies"
+                  v-for="tech in project.technologies"
                   :key="tech"
-                  :class="[
-                    'px-3 py-1 text-sm rounded-full transition-all duration-200',
-                    index % 2 === 0 
-                      ? 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800'
-                      : 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 hover:bg-green-200 dark:hover:bg-green-800'
-                  ]"
+                  class="px-2 py-1 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded"
                 >
                   {{ tech }}
                 </span>
               </div>
-              <div class="flex gap-4">
+              <div class="flex gap-4 text-sm">
                 <a
                   v-if="project.demoUrl"
                   :href="project.demoUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+                  class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                 >
-                  <ExternalLink class="w-4 h-4 mr-1" />
                   演示
                 </a>
                 <a
@@ -136,50 +95,43 @@
                   :href="project.githubUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
+                  class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                 >
-                  <Github class="w-4 h-4 mr-1" />
                   代码
                 </a>
               </div>
             </div>
-          </Card>
+          </div>
         </div>
         
-        <div class="text-center mt-12">
-          <Button
-            variant="primary"
-            size="lg"
-            @click="$router.push('/portfolio')"
-            class="inline-flex items-center"
+        <div class="mt-8">
+          <a
+            href="/portfolio"
+            class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm"
           >
-            查看所有项目
-            <ArrowRight class="w-5 h-5 ml-2" />
-          </Button>
+            查看所有项目 →
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Featured Sites Section -->
-    <section class="py-20 bg-white dark:bg-gray-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            我的网站
+    <section class="py-12 border-t border-gray-100 dark:border-gray-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12">
+          <h2 class="text-2xl font-medium text-gray-900 dark:text-white mb-3">
+            网站
           </h2>
-          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            一些在线的网站项目，欢迎访问体验
+          <p class="text-gray-600 dark:text-gray-400">
+            一些在线的东西
           </p>
         </div>
         
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-          <Card
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div
             v-for="site in featuredSites"
             :key="site.id"
-            variant="shadow"
-            padding="none"
-            hover
-            class="overflow-hidden transform hover:-rotate-1 transition-transform duration-300"
+            class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:border-gray-300 dark:hover:border-gray-600"
           >
             <div class="aspect-video bg-gray-100 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
               <img
@@ -189,36 +141,24 @@
               />
             </div>
             <div class="p-6">
-              <div class="flex items-start justify-between mb-3">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">{{ site.title }}</h3>
-                <div class="flex items-center text-green-600 dark:text-green-400">
-                  <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  <span class="text-sm">在线</span>
-                </div>
-              </div>
+              <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">{{ site.title }}</h3>
               <p class="text-gray-600 dark:text-gray-300 mb-4">{{ site.description }}</p>
               <div class="flex flex-wrap gap-2 mb-4">
                 <span
-                  v-for="(tech, index) in site.technologies"
+                  v-for="tech in site.technologies"
                   :key="tech"
-                  :class="[
-                    'px-3 py-1 text-sm rounded-full transition-all duration-200',
-                    index % 2 === 0 
-                      ? 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 hover:bg-purple-200 dark:hover:bg-purple-800'
-                      : 'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 hover:bg-orange-200 dark:hover:bg-orange-800'
-                  ]"
+                  class="px-2 py-1 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded"
                 >
                   {{ tech }}
                 </span>
               </div>
-              <div class="flex gap-4">
+              <div class="flex gap-4 text-sm">
                 <a
                   :href="site.url"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+                  class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                 >
-                  <ExternalLink class="w-4 h-4 mr-1" />
                   访问
                 </a>
                 <a
@@ -226,27 +166,39 @@
                   :href="site.githubUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
+                  class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
                 >
-                  <Github class="w-4 h-4 mr-1" />
                   代码
                 </a>
               </div>
             </div>
-          </Card>
+          </div>
         </div>
         
-        <div class="text-center mt-12">
-          <Button
-            variant="outline"
-            size="lg"
-            @click="$router.push('/sites')"
-            class="inline-flex items-center"
+        <div class="mt-8">
+          <a
+            href="/sites"
+            class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm"
           >
-            查看所有网站
-            <ArrowRight class="w-5 h-5 ml-2" />
-          </Button>
+            查看所有网站 →
+          </a>
         </div>
+      </div>
+    </section>
+
+    <!-- Ten Year Promise Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            十年之约
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            从2024年9月6日开始，记录这段代码人生
+          </p>
+        </div>
+        
+        <TenYearPromise />
       </div>
     </section>
 

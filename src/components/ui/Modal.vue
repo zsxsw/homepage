@@ -1,10 +1,8 @@
 <template>
   <Teleport to="body">
     <Transition
-      enter-active-class="duration-300 ease-out"
       enter-from-class="opacity-0"
       enter-to-class="opacity-100"
-      leave-active-class="duration-200 ease-in"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
@@ -16,12 +14,10 @@
           ></div>
           
           <Transition
-            enter-active-class="duration-300 ease-out"
-            enter-from-class="opacity-0 scale-95"
-            enter-to-class="opacity-100 scale-100"
-            leave-active-class="duration-200 ease-in"
-            leave-from-class="opacity-100 scale-100"
-            leave-to-class="opacity-0 scale-95"
+            enter-from-class="opacity-0"
+            enter-to-class="opacity-100"
+            leave-from-class="opacity-100"
+            leave-to-class="opacity-0"
           >
             <div 
               v-if="modelValue"
@@ -41,7 +37,7 @@
                 <button
                   v-if="showClose"
                   @click="close"
-                  class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                  class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300"
                   aria-label="关闭"
                 >
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,7 +89,7 @@ const props = withDefaults(defineProps<Props>(), {
 const emit = defineEmits<Emits>()
 
 const modalClasses = computed(() => {
-  const baseClasses = 'relative bg-white dark:bg-gray-800 rounded-lg shadow-xl transform transition-all'
+  const baseClasses = 'relative bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700'
   
   const sizeClasses = {
     sm: 'max-w-sm w-full',

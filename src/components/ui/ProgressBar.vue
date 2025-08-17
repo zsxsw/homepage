@@ -15,7 +15,7 @@
         :aria-valuemax="max"
         :aria-label="label"
       >
-        <div v-if="animated" class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-pulse"></div>
+
       </div>
     </div>
   </div>
@@ -76,7 +76,7 @@ const trackClasses = computed(() => {
 })
 
 const barClasses = computed(() => {
-  const baseClasses = 'h-full transition-all duration-500 ease-out relative'
+  const baseClasses = 'h-full relative'
   
   const colorClasses = {
     blue: 'bg-blue-600',
