@@ -43,21 +43,7 @@
       </div>
     </section>
 
-    <!-- Ten Year Promise Section -->
-    <section class="py-20 bg-white dark:bg-gray-900">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            十年之约
-          </h2>
-          <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            从2024年9月6日开始，记录这段代码人生
-          </p>
-        </div>
-        
-        <TenYearPromise />
-      </div>
-    </section>
+
 
     <!-- Featured Projects Section -->
     <section id="portfolio" class="py-20 bg-gray-50 dark:bg-gray-800">
@@ -155,7 +141,7 @@ import { usePersonalStore } from '@/stores/personal'
 import { useProjectsStore } from '@/stores/projects'
 import Button from '@/components/ui/Button.vue'
 import Card from '@/components/ui/Card.vue'
-import TenYearPromise from '@/components/ui/TenYearPromise.vue'
+
 
 const personalStore = usePersonalStore()
 const projectsStore = useProjectsStore()

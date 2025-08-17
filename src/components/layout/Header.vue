@@ -5,7 +5,7 @@
         <div class="flex items-center">
           <router-link to="/" class="flex items-center space-x-2">
             <div class="w-8 h-8 rounded-lg overflow-hidden">
-              <img src="https://www.fis.ink/img/logo_c.png" alt="fishcpy logo" class="w-full h-full object-cover" />
+              <img src="https://www.fis.ink/logo_c.png" alt="fishcpy logo" class="w-full h-full object-cover" />
             </div>
             <span class="font-semibold text-xl text-gray-900 dark:text-white">{{ personalStore.fullName }}</span>
           </router-link>

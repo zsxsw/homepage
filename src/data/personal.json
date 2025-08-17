@@ -6,11 +6,17 @@
   "email": "fishcpy@qq.com",
   "phone": "+86 138 0000 0000",
   "location": "北京，中国",
+  "website": "https://blog.fis.ink",
   "socialLinks": [
     {
       "platform": "GitHub",
       "url": "https://github.com/fishcpy",
       "icon": "github"
+    },
+    {
+      "platform": "Blog",
+      "url": "https://blog.fis.ink",
+      "icon": "globe"
     }
   ]
 }
