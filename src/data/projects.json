@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ecommerce-platform",
+    "title": "小商城项目",
+    "description": "给朋友做的一个小商城，前端用Vue3，后端Node.js。功能不算复杂，就是商品展示、购物车、下单这些基本的。踩了不少坑，但最后还是搞定了。",
+    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20online%20shop%20website%20product%20display%20shopping%20cart%20clean%20interface&image_size=landscape_16_9",
+    "technologies": ["Vue3", "TypeScript", "Node.js", "MongoDB"],
+    "demoUrl": "https://demo-ecommerce.example.com",
+    "githubUrl": "https://github.com/fishcpy/small-shop",
+    "featured": true,
+    "createdAt": "2024-01-15"
+  },
+  {
+    "id": "task-management",
+    "title": "待办事项工具",
+    "description": "自己用的一个任务管理工具，主要是记录日常的待办事项。用React写的，数据存在本地，简单实用。后来加了一些团队功能，现在几个朋友也在用。",
+    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20todo%20app%20task%20list%20clean%20interface%20minimal%20design&image_size=landscape_16_9",
+    "technologies": ["React", "TypeScript", "Express.js", "SQLite"],
+    "demoUrl": "https://demo-tasks.example.com",
+    "githubUrl": "https://github.com/fishcpy/todo-app",
+    "featured": true,
+    "createdAt": "2023-11-20"
+  },
+  {
+    "id": "weather-app",
+    "title": "天气查询小工具",
+    "description": "练手做的一个天气查询工具，调用了免费的天气API。界面比较简单，就是查查当天天气和未来几天的预报。主要是想试试Vue3的新特性。",
+    "image": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20weather%20app%20basic%20interface%20weather%20cards%20minimal%20design&image_size=landscape_16_9",
+    "technologies": ["Vue3", "Vite", "Tailwind CSS", "Weather API"],
+    "demoUrl": "https://demo-weather.example.com",
+    "githubUrl": "https://github.com/fishcpy/weather-tool",
+    "featured": false,
+    "createdAt": "2023-09-10"
+  }
+]
