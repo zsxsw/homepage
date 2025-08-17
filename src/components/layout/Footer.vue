@@ -68,7 +68,7 @@
         </p>
         <p class="text-gray-400 text-sm mt-2 md:mt-0">
           使用 Vue 3 + TypeScript 构建<p></p>
-          开源于github: https://github.com/fishcpy/homepage<p></p>
+          开源于https://github.com/fishcpy/homepage<p></p>
           注意是master分支
         </p>
       </div>

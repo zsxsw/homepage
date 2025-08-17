@@ -194,7 +194,7 @@
             十年之约
           </h2>
           <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            从2024年9月6日开始，记录这段代码人生
+            从2024年9月6日开始，记录这段时光
           </p>
         </div>
         

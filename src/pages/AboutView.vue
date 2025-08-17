@@ -73,13 +73,7 @@
                   {{ personalStore.info.bio }}
                 </p>
                 <p>
-                  写代码这事儿从大学就开始了，一开始纯粹是因为好奇心。
-                  后来发现能用代码解决实际问题还挺有意思的，就一直坚持到现在。
-                </p>
-                <p>
-                  平时除了工作项目，也会自己折腾一些小东西。
-                  有时候是为了验证某个想法，有时候纯粹是觉得好玩。
-                  代码写多了，发现最有成就感的还是看到自己的作品被人使用。
+                  --占位符--
                 </p>
               </div>
             </div>
@@ -111,17 +105,16 @@
             
             <!-- Education -->
             <div>
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">教育背景</h3>
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">--2大占位符--</h3>
               <div class="flex items-start">
                 <div class="flex-shrink-0">
                   <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"></div>
                 </div>
                 <div class="ml-4">
-                  <h4 class="font-medium text-gray-900 dark:text-white mb-1">计算机科学与技术</h4>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">2018-2022</p>
+                  <h4 class="font-medium text-gray-900 dark:text-white mb-1">--2.1小占位符--</h4>
+                  <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">--2.2小占位符--</p>
                   <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                    大学四年学了不少理论知识，但真正有用的还是自己课外折腾的那些项目。
-                    印象最深的是第一次用JavaScript做出一个能跑的网页，那种成就感至今难忘。
+                    --2.3小占位符--
                   </p>
                 </div>
               </div>
@@ -177,28 +170,45 @@ const personalStore = usePersonalStore()
 
 const experiences = [
   {
-    position: '独立开发者',
-    company: '自由工作',
-    period: '2022年至今',
-    description: '主要做一些Web项目，从前端到后端都自己搞。偶尔接点外包，大部分时间在研究新技术和做自己的项目。'
+    position: '使用vue3和AI开发新主页',
+    company: '看不见我---',
+    period: '2025.8',
+    description: '就是本站啦。'
   },
   {
-    position: '前端开发',
-    company: '小团队',
-    period: '2020-2022',
-    description: '在一个小公司做前端，主要用Vue和React。那时候学了不少东西，也踩了不少坑，算是正式入门了。'
+    position: '给ink备案啦',
+    company: '7.29提交的管理局，8.7号终于通过了',
+    period: '2025-8',
+    description: '大陆CDN，启动！'
   },
   {
-    position: '实习生',
-    company: '初创公司',
-    period: '2019-2020',
-    description: '第一份实习，什么都不会，就是跟着师傅学。从HTML/CSS开始，慢慢接触JavaScript，算是编程启蒙。'
+    position: '注册第一个ink',
+    company: 'ink有好多3位域名哎，',
+    period: '2025-6',
+    description: '果断注册fis.ink，续费还可以'
+  },
+  {
+    position: '注册第一个top',
+    company: 'cn居然隐私保护要花钱！',
+    period: '2025-3',
+    description: '注册top并迁移大量服务到top，cn不续了！'
+  },
+  {
+    position: '注册第一个正式意义上的域名',
+    company: '注册了一个cn，',
+    period: '2024-11',
+    description: '好开心。'
+  },
+  {
+    position: '第一个域名',
+    company: '跟着技术爬爬虾注册了第一个域名,',
+    period: '2024.7',
+    description: '是cloudns.be的子域，并注册cloudflare站号'
   }
 ]
 
 const interests = [
   { name: '编程', icon: Code },
-  { name: '摄影', icon: Camera },
   { name: '音乐', icon: Music },
   { name: '游戏', icon: Gamepad2 }
 ]
