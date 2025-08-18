@@ -64,11 +64,12 @@
       
       <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
         <p class="text-gray-400 text-sm">
-          &copy; {{ currentYear }} {{ personalStore.fullName }}. 保留所有权利。
+          &copy; {{ currentYear }} {{ personalStore.fullName }}. 保留所有权利。<br/>
+          <a class="text-gray-300 hover:text-white transition-colors" href="https://beian.miit.gov.cn" target="_blank">京ICP备2025138063号</a>
         </p>
         <p class="text-gray-400 text-sm mt-2 md:mt-0">
-          使用 Vue 3 + TypeScript 构建<p></p>
-          开源于https://github.com/fishcpy/homepage<p></p>
+          使用 Vue 3 + TypeScript 构建<br/>
+          开源于<a class="text-gray-300 hover:text-white transition-colors" href="https://github.com/fishcpy/homepage" target="_blank">GitHub</a><br/>
           注意是master分支
         </p>
       </div>
