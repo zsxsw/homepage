@@ -203,7 +203,7 @@ const experiences = [
     position: '第一个域名',
     company: '跟着技术爬爬虾注册了第一个域名,',
     period: '2024.7',
-    description: '是cloudns.be的子域，并注册cloudflare站号'
+    description: '是cloudns.be的子域，并注册cloudflare账号'
   }
 ]
 
