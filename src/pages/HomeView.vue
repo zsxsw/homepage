@@ -44,10 +44,10 @@
       <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-8 animate-fade-in-up text-center">
           <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-3 drop-shadow-lg">
-            推荐尝鲜
+            我的项目
           </h2>
           <p class="text-gray-700 dark:text-gray-200 drop-shadow-sm">
-            推荐你去试试的好产品
+            乱七八糟的东西
           </p>
         </div>
         
