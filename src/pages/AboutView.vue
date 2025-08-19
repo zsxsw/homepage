@@ -1,20 +1,31 @@
 <template>
-  <div class="bg-white dark:bg-gray-900">
+  <div class="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 relative">
+    <!-- Background blur effects -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-300/10 dark:bg-pink-500/5 rounded-full blur-3xl"></div>
+    </div>
+    
+    <!-- Content overlay -->
+    <div class="relative z-10">
     <!-- Hero Section -->
-    <section class="py-20">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-medium text-gray-900 dark:text-white mb-4 animate-fade-in">
+    <section class="py-20 relative">
+      <div class="absolute inset-0 bg-white/30 dark:bg-black/10 backdrop-blur-sm"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-medium text-gray-900 dark:text-white mb-4 animate-fade-in drop-shadow-lg">
           关于我
         </h1>
-        <p class="text-gray-600 dark:text-gray-400 animate-fade-in-delay">
+        <p class="text-gray-700 dark:text-gray-200 animate-fade-in-delay drop-shadow-sm">
           一个喜欢折腾代码的人
         </p>
       </div>
     </section>
 
     <!-- Main Content -->
-    <section class="pb-20">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="pb-20 relative">
+      <div class="absolute inset-0 bg-white/20 dark:bg-black/10 backdrop-blur-sm"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
           <!-- Profile Image -->
           <div class="lg:col-span-1">
@@ -66,23 +77,23 @@
           <!-- Content -->
           <div class="lg:col-span-3 space-y-12">
             <!-- Bio Section -->
-            <div class="animate-fade-in-up">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">关于我</h3>
-              <div class="text-gray-600 dark:text-gray-400 space-y-4 leading-relaxed">
-                <p>
+            <div class="animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl">
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">关于我</h3>
+              <div class="text-gray-700 dark:text-gray-200 space-y-4 leading-relaxed">
+                <p class="drop-shadow-sm">
                   {{ personalStore.info.bio }}
                 </p>
-                <p>
+                <p class="drop-shadow-sm">
                   --占位符--
                 </p>
               </div>
             </div>
             
             <!-- Experience Timeline -->
-            <div class="animate-fade-in-up">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">站点历程</h3>
+            <div class="animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl">
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">站点历程</h3>
               <div class="space-y-6">
-                <div v-for="(experience, index) in experiences" :key="index" class="relative timeline-item hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 -m-3">
+                <div v-for="(experience, index) in experiences" :key="index" class="relative timeline-item hover:bg-white/40 dark:hover:bg-white/5 rounded-lg p-3 -m-3 backdrop-blur-sm">
                   <div class="timeline-content">
                     <div class="flex items-start">
                       <div class="flex-shrink-0">
@@ -91,11 +102,11 @@
                     <div class="ml-4">
                       <div class="pb-6">
                         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-                          <h4 class="font-medium text-gray-900 dark:text-white">{{ experience.position }}</h4>
-                          <span class="text-sm text-gray-500 dark:text-gray-400">{{ experience.period }}</span>
+                          <h4 class="font-medium text-gray-900 dark:text-white drop-shadow-sm">{{ experience.position }}</h4>
+                          <span class="text-sm text-gray-600 dark:text-gray-300 drop-shadow-sm">{{ experience.period }}</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">{{ experience.company }}</p>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{{ experience.description }}</p>
+                        <p class="text-gray-700 dark:text-gray-200 text-sm mb-2 drop-shadow-sm">{{ experience.company }}</p>
+                        <p class="text-gray-700 dark:text-gray-200 text-sm leading-relaxed drop-shadow-sm">{{ experience.description }}</p>
                       </div>
                     </div>
                     </div>
@@ -106,16 +117,16 @@
             </div>
             
             <!-- Education -->
-            <div class="animate-fade-in-up">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">--2大占位符--</h3>
+            <div class="animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl">
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">--2大占位符--</h3>
               <div class="flex items-start">
                 <div class="flex-shrink-0">
                   <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"></div>
                 </div>
                 <div class="ml-4">
-                  <h4 class="font-medium text-gray-900 dark:text-white mb-1">--2.1小占位符--</h4>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mb-2">--2.2小占位符--</p>
-                  <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  <h4 class="font-medium text-gray-900 dark:text-white mb-1 drop-shadow-sm">--2.1小占位符--</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mb-2 drop-shadow-sm">--2.2小占位符--</p>
+                  <p class="text-gray-700 dark:text-gray-200 text-sm leading-relaxed drop-shadow-sm">
                     --2.3小占位符--
                   </p>
                 </div>
@@ -123,36 +134,36 @@
             </div>
             
             <!-- Interests -->
-            <div class="animate-fade-in-up">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">兴趣爱好</h3>
+            <div class="animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl">
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">兴趣爱好</h3>
               <div class="flex flex-wrap gap-3">
                 <div
                   v-for="interest in interests"
                   :key="interest.name"
-                  class="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-default"
+                  class="flex items-center space-x-2 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white cursor-default bg-white/40 dark:bg-white/5 backdrop-blur-sm rounded-xl px-3 py-2 border border-gray-200/30 dark:border-white/10"
                 >
-                  <component :is="interest.icon" class="w-4 h-4" />
-                  <span class="text-sm">{{ interest.name }}</span>
+                  <component :is="interest.icon" class="w-4 h-4 drop-shadow-sm" />
+                  <span class="text-sm drop-shadow-sm">{{ interest.name }}</span>
                 </div>
               </div>
             </div>
             
             <!-- Contact Section -->
-            <div class="animate-fade-in-up">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">联系我</h3>
+            <div class="animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl">
+              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">联系我</h3>
               <div class="space-y-3">
-                <div class="flex items-center text-gray-600 dark:text-gray-400">
-                  <Mail class="w-4 h-4 mr-3" />
+                <div class="flex items-center text-gray-700 dark:text-gray-200">
+                  <Mail class="w-4 h-4 mr-3 drop-shadow-sm" />
                   <a 
                     :href="`mailto:${personalStore.contactEmail}`"
-                    class="hover:text-blue-500 dark:hover:text-blue-400 hover:underline"
+                    class="hover:text-blue-500 dark:hover:text-blue-400 hover:underline drop-shadow-sm"
                   >
                     {{ personalStore.contactEmail }}
                   </a>
                 </div>
-                <div class="flex items-center text-gray-600 dark:text-gray-400">
-                  <MapPin class="w-4 h-4 mr-3" />
-                  <span>{{ personalStore.info.location }}</span>
+                <div class="flex items-center text-gray-700 dark:text-gray-200">
+                  <MapPin class="w-4 h-4 mr-3 drop-shadow-sm" />
+                  <span class="drop-shadow-sm">{{ personalStore.info.location }}</span>
                 </div>
               </div>
             </div>
@@ -160,6 +171,7 @@
         </div>
       </div>
     </section>
+    </div>
   </div>
 </template>
 

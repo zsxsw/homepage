@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-900 text-white">
+  <footer class="relative bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl text-gray-900 dark:text-white border-t border-white/30 dark:border-gray-700/30 shadow-2xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="col-span-1 md:col-span-2">
@@ -9,7 +9,7 @@
             </div>
             <span class="font-semibold text-xl">{{ personalStore.fullName }}</span>
           </div>
-          <p class="text-gray-300 mb-4 max-w-md">
+          <p class="text-gray-600 dark:text-gray-300 mb-4 max-w-md">
             {{ personalStore.info.bio }}
           </p>
           <div class="flex space-x-4">
@@ -19,7 +19,7 @@
               :href="link.url"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-gray-400 hover:text-white transition-colors"
+              class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
               :aria-label="link.platform"
             >
               <component :is="getIcon(link.icon)" class="w-6 h-6" />
@@ -33,7 +33,7 @@
             <li v-for="item in navigation" :key="item.name">
               <router-link
                 :to="item.href"
-                class="text-gray-300 hover:text-white transition-colors"
+                class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 {{ item.name }}
               </router-link>
@@ -45,31 +45,31 @@
           <h3 class="text-lg font-semibold mb-4">联系方式</h3>
           <ul class="space-y-2">
             <li class="flex items-center space-x-2">
-              <Mail class="w-4 h-4 text-gray-400" />
+              <Mail class="w-4 h-4 text-gray-500 dark:text-gray-400" />
               <a
                 :href="`mailto:${personalStore.contactEmail}`"
-                class="text-gray-300 hover:text-white transition-colors"
+                class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 {{ personalStore.contactEmail }}
               </a>
             </li>
 
             <li class="flex items-center space-x-2">
-              <MapPin class="w-4 h-4 text-gray-400" />
-              <span class="text-gray-300">{{ personalStore.info.location }}</span>
+              <MapPin class="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <span class="text-gray-600 dark:text-gray-300">{{ personalStore.info.location }}</span>
             </li>
           </ul>
         </div>
       </div>
       
-      <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-400 text-sm">
+      <div class="border-t border-gray-300/50 dark:border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 dark:text-gray-400 text-sm">
           &copy; {{ currentYear }} {{ personalStore.fullName }}. 保留所有权利。<br/>
-          <a class="text-gray-300 hover:text-white transition-colors" href="https://beian.miit.gov.cn" target="_blank">京ICP备2025138063号</a>
+          <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors" href="https://beian.miit.gov.cn" target="_blank">京ICP备2025138063号</a>
         </p>
-        <p class="text-gray-400 text-sm mt-2 md:mt-0">
+        <p class="text-gray-500 dark:text-gray-400 text-sm mt-2 md:mt-0">
           使用 Vue 3 + TypeScript 构建<br/>
-          开源于<a class="text-gray-300 hover:text-white transition-colors" href="https://github.com/fishcpy/homepage" target="_blank">GitHub</a><br/>
+          开源于<a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors" href="https://github.com/fishcpy/homepage" target="_blank">GitHub</a><br/>
           注意是master分支
         </p>
       </div>

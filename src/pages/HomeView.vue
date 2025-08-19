@@ -1,82 +1,78 @@
 <template>
-  <div class="bg-white dark:bg-gray-900">
-    <!-- Hero Section -->
-    <section class="py-12 lg:py-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div class="text-center lg:text-left animate-fade-in-left">
-            <h1 class="text-3xl lg:text-5xl font-medium text-gray-900 dark:text-white mb-4">
-              {{ personalStore.fullName }}
-            </h1>
-            <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-              {{ personalStore.info.title }}
-            </p>
-            <p class="text-gray-500 dark:text-gray-400 mb-6 max-w-xl">
-              {{ personalStore.info.bio }}
-            </p>
-            <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
-              <a
-                v-for="link in personalStore.info.socialLinks"
-                :key="link.platform"
-                :href="link.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white border border-gray-200 dark:border-gray-700 rounded hover:border-gray-300 dark:hover:border-gray-600 hover:scale-105 transition-all duration-200 ease-out"
-              >
-                <Github v-if="link.icon === 'github'" class="w-4 h-4 mr-2" />
-                <ExternalLink v-else-if="link.icon === 'globe'" class="w-4 h-4 mr-2" />
-                {{ link.platform }}
-              </a>
-            </div>
-          </div>
-          
-          <div class="flex justify-center lg:justify-end animate-fade-in-right">
-            <div class="w-64 h-64 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300 ease-out">
-              <img
-                :src="personalStore.avatar"
-                :alt="personalStore.fullName"
-                class="w-full h-full object-cover"
-              />
-            </div>
+  <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
+    <!-- Hero Banner Section -->
+    <section class="py-16 lg:py-24 relative overflow-hidden">
+      <!-- Background blur effect -->
+      <div class="absolute inset-0 bg-gradient-to-br from-white/60 via-blue-50/40 to-indigo-100/60 dark:from-gray-900/80 dark:via-blue-900/60 dark:to-purple-900/80 backdrop-blur-3xl"></div>
+      <div class="absolute inset-0">
+        <div class="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 dark:bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl"></div>
+      </div>
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="animate-fade-in-up">
+          <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-lg">
+            {{ personalStore.fullName }}
+          </h1>
+          <p class="text-xl lg:text-2xl text-blue-600 dark:text-blue-300 mb-6 font-medium drop-shadow-md">
+            {{ personalStore.info.title }}
+          </p>
+          <p class="text-lg text-gray-700 dark:text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+            {{ personalStore.info.bio }}
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a
+              v-for="link in personalStore.info.socialLinks"
+              :key="link.platform"
+              :href="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-6 py-3 text-gray-900 dark:text-white bg-white/20 dark:bg-white/10 backdrop-blur-md border border-gray-300/30 dark:border-white/20 rounded-lg hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-400/40 dark:hover:border-white/30 transition-all duration-300 shadow-lg"
+            >
+              <Github v-if="link.icon === 'github'" class="w-5 h-5 mr-2" />
+              <ExternalLink v-else-if="link.icon === 'globe'" class="w-5 h-5 mr-2" />
+              {{ link.platform }}
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Featured Projects Section -->
-    <section id="portfolio" class="py-12 border-t border-gray-100 dark:border-gray-800">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-8 animate-fade-in-up">
-          <h2 class="text-2xl font-medium text-gray-900 dark:text-white mb-3">
-            项目
+    <section id="portfolio" class="py-12 relative">
+      <div class="absolute inset-0 bg-white/30 dark:bg-black/20 backdrop-blur-sm"></div>
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8 animate-fade-in-up text-center">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-3 drop-shadow-lg">
+            推荐尝鲜
           </h2>
-          <p class="text-gray-600 dark:text-gray-400">
-            一些做过的东西
+          <p class="text-gray-700 dark:text-gray-200 drop-shadow-sm">
+            推荐你去试试的好产品
           </p>
         </div>
         
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div
             v-for="(project, index) in featuredProjects"
             :key="project.id"
-            class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out project-card"
+            class="bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl project-card"
             :style="{ animationDelay: `${index * 0.1}s` }"
           >
-            <div class="aspect-video bg-gray-100 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+            <div class="aspect-video bg-gray-100/50 dark:bg-black/20 flex items-center justify-center overflow-hidden">
               <img
                 :src="project.image"
                 :alt="project.title"
-                class="w-full h-full object-cover hover:scale-110 transition-transform duration-300 ease-out"
+                class="w-full h-full object-cover"
               />
             </div>
             <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{{ project.title }}</h3>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">{{ project.description }}</p>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 drop-shadow-md">{{ project.title }}</h3>
+              <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm leading-relaxed">{{ project.description }}</p>
               <div class="flex flex-wrap gap-2 mb-4">
                 <span
                   v-for="tech in project.technologies"
                   :key="tech"
-                  class="px-2 py-1 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded"
+                  class="px-3 py-1 text-xs text-gray-800 dark:text-white bg-gray-200/60 dark:bg-white/20 backdrop-blur-sm rounded-full border border-gray-300/40 dark:border-white/30"
                 >
                   {{ tech }}
                 </span>
@@ -87,16 +83,16 @@
                   :href="project.demoUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+                  class="text-blue-600 dark:text-blue-300 hover:text-blue-700 dark:hover:text-blue-200 transition-colors duration-200 font-medium"
                 >
-                  演示
+                  过一步了解 >
                 </a>
                 <a
                   v-if="project.githubUrl"
                   :href="project.githubUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+                  class="text-blue-600 dark:text-blue-300 hover:text-blue-700 dark:hover:text-blue-200 transition-colors duration-200 font-medium"
                 >
                   代码
                 </a>
@@ -105,10 +101,10 @@
           </div>
         </div>
         
-        <div class="mt-8">
+        <div class="mt-8 text-center">
           <a
             href="/portfolio"
-            class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm transition-colors duration-200 hover:translate-x-1 inline-block"
+            class="text-blue-600 dark:text-blue-300 hover:text-blue-700 dark:hover:text-blue-200 text-sm transition-colors duration-200 inline-block font-medium"
           >
             查看所有项目 →
           </a>
@@ -117,39 +113,40 @@
     </section>
 
     <!-- Featured Sites Section -->
-    <section class="py-12 border-t border-gray-100 dark:border-gray-800">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-12 animate-fade-in-up">
-          <h2 class="text-2xl font-medium text-gray-900 dark:text-white mb-3">
+    <section class="py-12 relative">
+      <div class="absolute inset-0 bg-white/30 dark:bg-black/10 backdrop-blur-sm"></div>
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 animate-fade-in-up text-center">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-3 drop-shadow-lg">
             网站
           </h2>
-          <p class="text-gray-600 dark:text-gray-400">
+          <p class="text-gray-700 dark:text-gray-200 drop-shadow-sm">
             一些在线的东西
           </p>
         </div>
         
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div
             v-for="(site, index) in featuredSites"
             :key="site.id"
-            class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-out site-card"
+            class="bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl site-card"
             :style="{ animationDelay: `${index * 0.1}s` }"
           >
-            <div class="aspect-video bg-gray-100 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
+            <div class="aspect-video bg-gray-100/50 dark:bg-black/20 flex items-center justify-center overflow-hidden">
               <img
                 :src="site.image"
                 :alt="site.title"
-                class="w-full h-full object-cover hover:scale-110 transition-transform duration-300 ease-out"
+                class="w-full h-full object-cover"
               />
             </div>
             <div class="p-6">
-              <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">{{ site.title }}</h3>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">{{ site.description }}</p>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 drop-shadow-md">{{ site.title }}</h3>
+              <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm leading-relaxed">{{ site.description }}</p>
               <div class="flex flex-wrap gap-2 mb-4">
                 <span
                   v-for="tech in site.technologies"
                   :key="tech"
-                  class="px-2 py-1 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 rounded"
+                  class="px-3 py-1 text-xs text-gray-800 dark:text-white bg-gray-200/60 dark:bg-white/20 backdrop-blur-sm rounded-full border border-gray-300/40 dark:border-white/30"
                 >
                   {{ tech }}
                 </span>
@@ -159,16 +156,16 @@
                   :href="site.url"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+                  class="text-blue-600 dark:text-blue-300 hover:text-blue-700 dark:hover:text-blue-200 transition-colors duration-200 font-medium"
                 >
-                  访问
+                  过一步了解 >
                 </a>
                 <a
                   v-if="site.githubUrl"
                   :href="site.githubUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+                  class="text-blue-600 dark:text-blue-300 hover:text-blue-700 dark:hover:text-blue-200 transition-colors duration-200 font-medium"
                 >
                   代码
                 </a>
@@ -177,10 +174,10 @@
           </div>
         </div>
         
-        <div class="mt-8">
+        <div class="mt-8 text-center">
           <a
             href="/sites"
-            class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm transition-colors duration-200 hover:translate-x-1 inline-block"
+            class="text-blue-600 dark:text-blue-300 hover:text-blue-700 dark:hover:text-blue-200 text-sm transition-colors duration-200 inline-block font-medium"
           >
             查看所有网站 →
           </a>
@@ -209,32 +206,10 @@
 </template>
 
 <style scoped>
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -242,16 +217,8 @@
   }
 }
 
-.animate-fade-in-left {
-  animation: fadeInLeft 0.8s ease-out;
-}
-
-.animate-fade-in-right {
-  animation: fadeInRight 0.8s ease-out;
-}
-
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out;
+  animation: fadeInUp 0.6s ease-out;
 }
 
 .project-card {

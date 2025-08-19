@@ -1,5 +1,14 @@
 <template>
-  <div class="bg-white dark:bg-gray-900">
+  <div class="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 relative">
+    <!-- Background blur effects -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-300/10 dark:bg-pink-500/5 rounded-full blur-3xl"></div>
+    </div>
+    
+    <!-- Content overlay -->
+    <div class="relative z-10">
     <div class="sponsor-container">
       <div class="sponsor-card">
         <div class="header">
@@ -89,6 +98,7 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 </template>
 
@@ -121,16 +131,19 @@ const sponsors = ref(sponsorsData)
 }
 
 .sponsor-card {
-  background: white;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
   padding: 48px;
   text-align: center;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .dark .sponsor-card {
-  background: #111827;
-  border: 1px solid #374151;
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .header {
