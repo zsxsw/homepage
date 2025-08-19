@@ -1,5 +1,21 @@
 <template>
-  <footer class="relative bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl text-gray-900 dark:text-white border-t border-white/30 dark:border-gray-700/30 shadow-2xl">
+  <footer 
+    ref="footerRef"
+    @mousemove="handleMouseMove"
+    @mouseleave="handleMouseLeave"
+    class="relative bg-white/60 dark:bg-gray-900/60 backdrop-blur-xl text-gray-900 dark:text-white border-t border-white/30 dark:border-gray-700/30 shadow-2xl overflow-hidden"
+  >
+    <!-- 鼠标跟随效果 -->
+    <div 
+      v-if="showEffect"
+      class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none animate-pulse z-0"
+      :style="{
+        left: mouseX - 80 + 'px',
+        top: mouseY - 80 + 'px',
+        background: 'radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(59, 130, 246, 0.3) 30%, rgba(59, 130, 246, 0.15) 60%, transparent 90%)',
+        boxShadow: '0 0 80px rgba(59, 130, 246, 0.5), 0 0 160px rgba(59, 130, 246, 0.3)'
+      }"
+    ></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="col-span-1 md:col-span-2">
@@ -78,9 +94,28 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { Mail, MapPin, Github, Linkedin, Twitter, MessageCircle } from 'lucide-vue-next'
 import { usePersonalStore } from '@/stores/personal'
+
+const footerRef = ref<HTMLElement>()
+const mouseX = ref(0)
+const mouseY = ref(0)
+const showEffect = ref(false)
+
+const handleMouseMove = (event: MouseEvent) => {
+  const footer = footerRef.value
+  if (!footer) return
+  
+  const rect = footer.getBoundingClientRect()
+  mouseX.value = event.clientX - rect.left
+  mouseY.value = event.clientY - rect.top
+  showEffect.value = true
+}
+
+const handleMouseLeave = () => {
+  showEffect.value = false
+}
 
 const personalStore = usePersonalStore()
 

@@ -22,7 +22,23 @@
         </div>
 
         <div class="qr-codes">
-          <div class="qr-card">
+          <div 
+            class="qr-card"
+            :ref="el => qrCardRefs[0] = el"
+            @mousemove="(event) => handleQrCardMouseMove(event, 0)"
+            @mouseleave="() => handleQrCardMouseLeave(0)"
+          >
+            <!-- 鼠标跟随效果 -->
+            <div 
+              v-if="qrCardEffects[0]?.show"
+              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+              :style="{
+                left: qrCardEffects[0]?.x - 80 + 'px',
+                top: qrCardEffects[0]?.y - 80 + 'px',
+                background: 'radial-gradient(circle, rgba(7, 193, 96, 0.6) 0%, rgba(7, 193, 96, 0.3) 30%, rgba(7, 193, 96, 0.15) 60%, transparent 90%)',
+                boxShadow: '0 0 80px rgba(7, 193, 96, 0.5), 0 0 160px rgba(7, 193, 96, 0.3)'
+              }"
+            ></div>
             <div class="qr-icon">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="#07c160">
                 <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.162 4.203 2.97 5.498L2.098 17.5l2.647-1.363c.893.219 1.852.328 2.946.328.32 0 .631-.017.938-.049-.197-.683-.308-1.398-.308-2.141 0-4.054 3.891-7.342 8.691-7.342.041 0 .082.001.123.002C16.94 4.564 13.531 2.188 8.691 2.188zm-2.262 5.5a.877.877 0 1 1 0-1.754.877.877 0 0 1 0 1.754zm4.524 0a.877.877 0 1 1 0-1.754.877.877 0 0 1 0 1.754z"/>
@@ -36,7 +52,23 @@
             <p class="qr-description">扫一扫，请我喝杯咖啡</p>
           </div>
           
-          <div class="qr-card">
+          <div 
+            class="qr-card"
+            :ref="el => qrCardRefs[1] = el"
+            @mousemove="(event) => handleQrCardMouseMove(event, 1)"
+            @mouseleave="() => handleQrCardMouseLeave(1)"
+          >
+            <!-- 鼠标跟随效果 -->
+            <div 
+              v-if="qrCardEffects[1]?.show"
+              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+              :style="{
+                left: qrCardEffects[1]?.x - 80 + 'px',
+                top: qrCardEffects[1]?.y - 80 + 'px',
+                background: 'radial-gradient(circle, rgba(22, 119, 255, 0.6) 0%, rgba(22, 119, 255, 0.3) 30%, rgba(22, 119, 255, 0.15) 60%, transparent 90%)',
+                boxShadow: '0 0 80px rgba(22, 119, 255, 0.5), 0 0 160px rgba(22, 119, 255, 0.3)'
+              }"
+            ></div>
             <div class="qr-icon">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="#1677ff">
                 <path d="M22.6 14.3c-1.1.4-2.4.6-3.8.6-3.3 0-6.2-1.4-8.3-3.7-1.1 2.2-2.8 4.1-4.9 5.4 1.5 1.1 3.4 1.8 5.5 1.8 2.8 0 5.3-1.2 7.1-3.1.9.5 1.9.8 2.9.8 1.4 0 2.7-.4 3.8-1.1-.7-.2-1.4-.4-2.3-.7zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm5.5 13.2c-.8.5-1.7.8-2.7.8-.9 0-1.7-.2-2.4-.6 1.8-1.2 3.2-2.8 4.1-4.7 1.2.8 2.2 1.9 2.8 3.2-.6.4-1.2.8-1.8 1.3zm-7.8-2.9c1.8 2 4.3 3.2 7.1 3.2 1.2 0 2.3-.2 3.3-.5-.5-1.1-1.3-2-2.3-2.7-.8 1.7-2 3.1-3.5 4.1-1.8-.9-3.3-2.3-4.3-4.1h-.3z"/>
@@ -49,7 +81,23 @@
             <p class="qr-description">扫一扫，请我喝杯咖啡</p>
           </div>
           
-          <div class="qr-card">
+          <div 
+            class="qr-card"
+            :ref="el => qrCardRefs[2] = el"
+            @mousemove="(event) => handleQrCardMouseMove(event, 2)"
+            @mouseleave="() => handleQrCardMouseLeave(2)"
+          >
+            <!-- 鼠标跟随效果 -->
+            <div 
+              v-if="qrCardEffects[2]?.show"
+              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+              :style="{
+                left: qrCardEffects[2]?.x - 80 + 'px',
+                top: qrCardEffects[2]?.y - 80 + 'px',
+                background: 'radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, rgba(236, 72, 153, 0.3) 30%, rgba(236, 72, 153, 0.15) 60%, transparent 90%)',
+                boxShadow: '0 0 80px rgba(236, 72, 153, 0.5), 0 0 160px rgba(236, 72, 153, 0.3)'
+              }"
+            ></div>
             <div class="qr-icon">
               <Heart class="w-8 h-8" />
             </div>
@@ -103,11 +151,32 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 import { Heart, Mail, ExternalLink } from 'lucide-vue-next'
 import sponsorsData from '@/data/sponsors.json'
 
 const sponsors = ref(sponsorsData)
+
+const qrCardRefs = ref<HTMLElement[]>([])
+const qrCardEffects = reactive<Record<number, { x: number; y: number; show: boolean }>>({})
+
+const handleQrCardMouseMove = (event: MouseEvent, index: number) => {
+  const card = qrCardRefs.value[index]
+  if (!card) return
+  
+  const rect = card.getBoundingClientRect()
+  qrCardEffects[index] = {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
+    show: true
+  }
+}
+
+const handleQrCardMouseLeave = (index: number) => {
+  if (qrCardEffects[index]) {
+    qrCardEffects[index].show = false
+  }
+}
 </script>
 
 <style scoped>
@@ -199,6 +268,8 @@ const sponsors = ref(sponsorsData)
   padding: 32px 24px;
   text-align: center;
   flex: 1;
+  position: relative;
+  overflow: hidden;
 }
 
 .dark .qr-card {

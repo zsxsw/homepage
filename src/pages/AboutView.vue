@@ -77,9 +77,25 @@
           <!-- Content -->
           <div class="lg:col-span-3 space-y-12">
             <!-- Bio Section -->
-            <div class="animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">关于我</h3>
-              <div class="text-gray-700 dark:text-gray-200 space-y-4 leading-relaxed">
+            <div 
+              class="relative animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl"
+              :ref="el => aboutCardRefs[0] = el"
+              @mousemove="(event) => handleAboutCardMouseMove(event, 0)"
+              @mouseleave="() => handleAboutCardMouseLeave(0)"
+            >
+              <!-- 鼠标跟随效果 -->
+              <div 
+                v-if="aboutCardEffects[0]?.show"
+                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+                :style="{
+                  left: aboutCardEffects[0]?.x - 80 + 'px',
+                   top: aboutCardEffects[0]?.y - 80 + 'px',
+                   background: 'radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(59, 130, 246, 0.3) 30%, rgba(59, 130, 246, 0.15) 60%, transparent 90%)',
+                   boxShadow: '0 0 80px rgba(59, 130, 246, 0.5), 0 0 160px rgba(59, 130, 246, 0.3)'
+                }"
+              ></div>
+              <h3 class="relative z-10 text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">关于我</h3>
+              <div class="relative z-10 text-gray-700 dark:text-gray-200 space-y-4 leading-relaxed">
                 <p class="drop-shadow-sm">
                   {{ personalStore.info.bio }}
                 </p>
@@ -90,9 +106,25 @@
             </div>
             
             <!-- Experience Timeline -->
-            <div class="animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">站点历程</h3>
-              <div class="space-y-6">
+            <div 
+              class="relative animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl"
+              :ref="el => aboutCardRefs[1] = el"
+              @mousemove="(event) => handleAboutCardMouseMove(event, 1)"
+              @mouseleave="() => handleAboutCardMouseLeave(1)"
+            >
+              <!-- 鼠标跟随效果 -->
+              <div 
+                v-if="aboutCardEffects[1]?.show"
+                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+                :style="{
+                  left: aboutCardEffects[1]?.x - 80 + 'px',
+                   top: aboutCardEffects[1]?.y - 80 + 'px',
+                   background: 'radial-gradient(circle, rgba(34, 197, 94, 0.6) 0%, rgba(34, 197, 94, 0.3) 30%, rgba(34, 197, 94, 0.15) 60%, transparent 90%)',
+                   boxShadow: '0 0 80px rgba(34, 197, 94, 0.5), 0 0 160px rgba(34, 197, 94, 0.3)'
+                }"
+              ></div>
+              <h3 class="relative z-10 text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">站点历程</h3>
+              <div class="relative z-10 space-y-6">
                 <div v-for="(experience, index) in experiences" :key="index" class="relative timeline-item hover:bg-white/40 dark:hover:bg-white/5 rounded-lg p-3 -m-3 backdrop-blur-sm">
                   <div class="timeline-content">
                     <div class="flex items-start">
@@ -117,9 +149,25 @@
             </div>
             
             <!-- Education -->
-            <div class="animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">--2大占位符--</h3>
-              <div class="flex items-start">
+            <div 
+              class="relative animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl"
+              :ref="el => aboutCardRefs[2] = el"
+              @mousemove="(event) => handleAboutCardMouseMove(event, 2)"
+              @mouseleave="() => handleAboutCardMouseLeave(2)"
+            >
+              <!-- 鼠标跟随效果 -->
+              <div 
+                v-if="aboutCardEffects[2]?.show"
+                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+                :style="{
+                  left: aboutCardEffects[2]?.x - 80 + 'px',
+                   top: aboutCardEffects[2]?.y - 80 + 'px',
+                   background: 'radial-gradient(circle, rgba(168, 85, 247, 0.6) 0%, rgba(168, 85, 247, 0.3) 30%, rgba(168, 85, 247, 0.15) 60%, transparent 90%)',
+                   boxShadow: '0 0 80px rgba(168, 85, 247, 0.5), 0 0 160px rgba(168, 85, 247, 0.3)'
+                }"
+              ></div>
+              <h3 class="relative z-10 text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">--2大占位符--</h3>
+              <div class="relative z-10 flex items-start">
                 <div class="flex-shrink-0">
                   <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mt-2"></div>
                 </div>
@@ -134,9 +182,25 @@
             </div>
             
             <!-- Interests -->
-            <div class="animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">兴趣爱好</h3>
-              <div class="flex flex-wrap gap-3">
+            <div 
+              class="relative animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl"
+              :ref="el => aboutCardRefs[3] = el"
+              @mousemove="(event) => handleAboutCardMouseMove(event, 3)"
+              @mouseleave="() => handleAboutCardMouseLeave(3)"
+            >
+              <!-- 鼠标跟随效果 -->
+              <div 
+                v-if="aboutCardEffects[3]?.show"
+                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+                :style="{
+                  left: aboutCardEffects[3]?.x - 80 + 'px',
+                   top: aboutCardEffects[3]?.y - 80 + 'px',
+                   background: 'radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, rgba(236, 72, 153, 0.3) 30%, rgba(236, 72, 153, 0.15) 60%, transparent 90%)',
+                   boxShadow: '0 0 80px rgba(236, 72, 153, 0.5), 0 0 160px rgba(236, 72, 153, 0.3)'
+                }"
+              ></div>
+              <h3 class="relative z-10 text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">兴趣爱好</h3>
+              <div class="relative z-10 flex flex-wrap gap-3">
                 <div
                   v-for="interest in interests"
                   :key="interest.name"
@@ -149,9 +213,25 @@
             </div>
             
             <!-- Contact Section -->
-            <div class="animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl">
-              <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">联系我</h3>
-              <div class="space-y-3">
+            <div 
+              class="relative animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl"
+              :ref="el => aboutCardRefs[4] = el"
+              @mousemove="(event) => handleAboutCardMouseMove(event, 4)"
+              @mouseleave="() => handleAboutCardMouseLeave(4)"
+            >
+              <!-- 鼠标跟随效果 -->
+              <div 
+                v-if="aboutCardEffects[4]?.show"
+                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+                :style="{
+                  left: aboutCardEffects[4]?.x - 80 + 'px',
+                   top: aboutCardEffects[4]?.y - 80 + 'px',
+                   background: 'radial-gradient(circle, rgba(245, 101, 101, 0.6) 0%, rgba(245, 101, 101, 0.3) 30%, rgba(245, 101, 101, 0.15) 60%, transparent 90%)',
+                   boxShadow: '0 0 80px rgba(245, 101, 101, 0.5), 0 0 160px rgba(245, 101, 101, 0.3)'
+                }"
+              ></div>
+              <h3 class="relative z-10 text-xl font-medium text-gray-900 dark:text-white mb-4 drop-shadow-lg">联系我</h3>
+              <div class="relative z-10 space-y-3">
                 <div class="flex items-center text-gray-700 dark:text-gray-200">
                   <Mail class="w-4 h-4 mr-3 drop-shadow-sm" />
                   <a 
@@ -176,9 +256,31 @@
 </template>
 
 <script setup lang="ts">
+import { ref, reactive } from 'vue'
 import { MapPin, Mail, Briefcase, GraduationCap, Github, Linkedin, Twitter, MessageCircle, Code, Camera, Music, Gamepad2 } from 'lucide-vue-next'
 import { usePersonalStore } from '@/stores/personal'
 import Card from '@/components/ui/Card.vue'
+
+const aboutCardRefs = ref<HTMLElement[]>([])
+const aboutCardEffects = reactive<Record<number, { x: number; y: number; show: boolean }>>({})
+
+const handleAboutCardMouseMove = (event: MouseEvent, index: number) => {
+  const card = aboutCardRefs.value[index]
+  if (!card) return
+  
+  const rect = card.getBoundingClientRect()
+  aboutCardEffects[index] = {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
+    show: true
+  }
+}
+
+const handleAboutCardMouseLeave = (index: number) => {
+  if (aboutCardEffects[index]) {
+    aboutCardEffects[index].show = false
+  }
+}
 
 const personalStore = usePersonalStore()
 

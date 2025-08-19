@@ -35,11 +35,25 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
-            v-for="project in projectsStore.allProjects"
+            v-for="(project, index) in projectsStore.allProjects"
             :key="project.id"
-            class="bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl p-6 hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl"
+            :ref="el => projectCardRefs[index] = el"
+            @mousemove="(event) => handleProjectCardMouseMove(event, index)"
+            @mouseleave="() => handleProjectCardMouseLeave(index)"
+            class="relative bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl p-6 hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl"
           >
-            <div class="mb-3">
+            <!-- 鼠标跟随效果 -->
+            <div 
+              v-if="projectCardEffects[index]?.show"
+              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+              :style="{
+                left: projectCardEffects[index]?.x - 80 + 'px',
+                   top: projectCardEffects[index]?.y - 80 + 'px',
+                   background: 'radial-gradient(circle, rgba(34, 197, 94, 0.6) 0%, rgba(34, 197, 94, 0.3) 30%, rgba(34, 197, 94, 0.15) 60%, transparent 90%)',
+                   boxShadow: '0 0 80px rgba(34, 197, 94, 0.5), 0 0 160px rgba(34, 197, 94, 0.3)'
+              }"
+            ></div>
+            <div class="relative z-10 mb-3">
               <img
                 v-if="project.image"
                 :src="project.image"
@@ -47,11 +61,11 @@
                 class="w-full h-32 object-cover rounded border border-gray-100 dark:border-gray-700"
               />
             </div>
-            <h4 class="text-base font-medium text-gray-900 dark:text-white mb-2 drop-shadow-md">{{ project.title }}</h4>
-            <p class="text-gray-700 dark:text-gray-200 text-sm mb-3 drop-shadow-sm">{{ project.description }}</p>
+            <h4 class="relative z-10 text-base font-medium text-gray-900 dark:text-white mb-2 drop-shadow-md">{{ project.title }}</h4>
+            <p class="relative z-10 text-gray-700 dark:text-gray-200 text-sm mb-3 drop-shadow-sm">{{ project.description }}</p>
             
             <!-- Tech Stack -->
-            <div class="flex flex-wrap gap-1 mb-3">
+            <div class="relative z-10 flex flex-wrap gap-1 mb-3">
               <span
                 v-for="tech in project.technologies.slice(0, 3)"
                 :key="tech"
@@ -68,12 +82,12 @@
             </div>
             
             <!-- Date -->
-            <div class="text-xs text-gray-600 dark:text-gray-400 mb-3 drop-shadow-sm">
+            <div class="relative z-10 text-xs text-gray-600 dark:text-gray-400 mb-3 drop-shadow-sm">
               {{ formatDate(project.createdAt) }}
             </div>
             
             <!-- Links -->
-            <div class="flex gap-3 text-sm">
+            <div class="relative z-10 flex gap-3 text-sm">
               <a
                 v-if="project.demoUrl"
                 :href="project.demoUrl"
@@ -104,8 +118,29 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, reactive } from 'vue'
 import { useProjectsStore } from '@/stores/projects'
+
+const projectCardRefs = ref<HTMLElement[]>([])
+const projectCardEffects = reactive<Record<number, { x: number; y: number; show: boolean }>>({})
+
+const handleProjectCardMouseMove = (event: MouseEvent, index: number) => {
+  const card = projectCardRefs.value[index]
+  if (!card) return
+  
+  const rect = card.getBoundingClientRect()
+  projectCardEffects[index] = {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
+    show: true
+  }
+}
+
+const handleProjectCardMouseLeave = (index: number) => {
+  if (projectCardEffects[index]) {
+    projectCardEffects[index].show = false
+  }
+}
 
 const projectsStore = useProjectsStore()
 

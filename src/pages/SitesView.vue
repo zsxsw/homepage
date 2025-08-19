@@ -28,24 +28,38 @@
       <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div
-            v-for="site in sites"
+            v-for="(site, index) in sites"
             :key="site.id"
-            class="bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl p-6 hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl"
+            :ref="el => siteCardRefs[index] = el"
+            @mousemove="(event) => handleSiteCardMouseMove(event, index)"
+            @mouseleave="() => handleSiteCardMouseLeave(index)"
+            class="relative bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl p-6 hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl"
           >
-            <div class="mb-4">
+            <!-- 鼠标跟随效果 -->
+            <div 
+              v-if="siteCardEffects[index]?.show"
+              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+              :style="{
+                left: siteCardEffects[index]?.x - 80 + 'px',
+                   top: siteCardEffects[index]?.y - 80 + 'px',
+                   background: 'radial-gradient(circle, rgba(168, 85, 247, 0.6) 0%, rgba(168, 85, 247, 0.3) 30%, rgba(168, 85, 247, 0.15) 60%, transparent 90%)',
+                   boxShadow: '0 0 80px rgba(168, 85, 247, 0.5), 0 0 160px rgba(168, 85, 247, 0.3)'
+              }"
+            ></div>
+            <div class="relative z-10 mb-4">
               <img
                 :src="site.image"
                 :alt="site.title"
                 class="w-full h-48 object-cover rounded border border-gray-100 dark:border-gray-700"
               />
             </div>
-              <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2 drop-shadow-md">
+              <h3 class="relative z-10 text-lg font-medium text-gray-900 dark:text-white mb-2 drop-shadow-md">
                 {{ site.title }}
               </h3>
-              <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm drop-shadow-sm">
+              <p class="relative z-10 text-gray-700 dark:text-gray-200 mb-4 text-sm drop-shadow-sm">
                 {{ site.description }}
               </p>
-              <div class="flex flex-wrap gap-2 mb-4">
+              <div class="relative z-10 flex flex-wrap gap-2 mb-4">
                 <span
                   v-for="tech in site.technologies"
                   :key="tech"
@@ -54,7 +68,7 @@
                   {{ tech }}
                 </span>
               </div>
-              <div class="flex gap-4 text-sm">
+              <div class="relative z-10 flex gap-4 text-sm">
                 <a
                   :href="site.url"
                   target="_blank"
@@ -84,7 +98,29 @@
 </template>
 
 <script setup lang="ts">
+import { ref, reactive } from 'vue'
 import { ExternalLink, Github } from 'lucide-vue-next'
 import Card from '@/components/ui/Card.vue'
 import sites from '@/data/sites.json'
+
+const siteCardRefs = ref<HTMLElement[]>([])
+const siteCardEffects = reactive<Record<number, { x: number; y: number; show: boolean }>>({})
+
+const handleSiteCardMouseMove = (event: MouseEvent, index: number) => {
+  const card = siteCardRefs.value[index]
+  if (!card) return
+  
+  const rect = card.getBoundingClientRect()
+  siteCardEffects[index] = {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
+    show: true
+  }
+}
+
+const handleSiteCardMouseLeave = (index: number) => {
+  if (siteCardEffects[index]) {
+    siteCardEffects[index].show = false
+  }
+}
 </script>

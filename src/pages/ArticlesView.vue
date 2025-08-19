@@ -80,11 +80,25 @@
 
         <div v-else class="space-y-6">
           <article 
-            v-for="article in articles" 
+            v-for="(article, index) in articles" 
             :key="article.id"
-            class="bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-xl border border-gray-300/40 dark:border-white/20 overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl"
+            :ref="el => articleCardRefs[index] = el"
+            @mousemove="(event) => handleArticleCardMouseMove(event, index)"
+            @mouseleave="() => handleArticleCardMouseLeave(index)"
+            class="relative bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-xl border border-gray-300/40 dark:border-white/20 overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl"
           >
-            <div class="p-8">
+            <!-- 鼠标跟随效果 -->
+            <div 
+              v-if="articleCardEffects[index]?.show"
+              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+              :style="{
+                left: articleCardEffects[index]?.x - 80 + 'px',
+                   top: articleCardEffects[index]?.y - 80 + 'px',
+                   background: 'radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, rgba(236, 72, 153, 0.3) 30%, rgba(236, 72, 153, 0.15) 60%, transparent 90%)',
+                   boxShadow: '0 0 80px rgba(236, 72, 153, 0.5), 0 0 160px rgba(236, 72, 153, 0.3)'
+              }"
+            ></div>
+            <div class="relative z-10 p-8">
               <div class="flex items-start justify-between mb-4">
                 <div class="flex-1">
                   <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 drop-shadow-md">
@@ -154,9 +168,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, reactive, onMounted } from 'vue'
 import type { Article } from '@/types'
 import { RSSService } from '@/lib/rssService'
+
+const articleCardRefs = ref<HTMLElement[]>([])
+const articleCardEffects = reactive<Record<number, { x: number; y: number; show: boolean }>>({})
+
+const handleArticleCardMouseMove = (event: MouseEvent, index: number) => {
+  const card = articleCardRefs.value[index]
+  if (!card) return
+  
+  const rect = card.getBoundingClientRect()
+  articleCardEffects[index] = {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
+    show: true
+  }
+}
+
+const handleArticleCardMouseLeave = (index: number) => {
+  if (articleCardEffects[index]) {
+    articleCardEffects[index].show = false
+  }
+}
 
 const articles = ref<Article[]>([])
 const loading = ref(true)

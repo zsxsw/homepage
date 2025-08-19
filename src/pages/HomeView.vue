@@ -55,17 +55,31 @@
           <div
             v-for="(project, index) in featuredProjects"
             :key="project.id"
-            class="bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl project-card"
+            :ref="el => projectCardRefs[index] = el"
+            @mousemove="(event) => handleProjectCardMouseMove(event, index)"
+            @mouseleave="() => handleProjectCardMouseLeave(index)"
+            class="relative bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl project-card"
             :style="{ animationDelay: `${index * 0.1}s` }"
           >
-            <div class="aspect-video bg-gray-100/50 dark:bg-black/20 flex items-center justify-center overflow-hidden">
+            <!-- 鼠标跟随效果 -->
+            <div 
+              v-if="projectCardEffects[index]?.show"
+              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+              :style="{
+                left: projectCardEffects[index]?.x - 80 + 'px',
+                   top: projectCardEffects[index]?.y - 80 + 'px',
+                   background: 'radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(59, 130, 246, 0.3) 30%, rgba(59, 130, 246, 0.15) 60%, transparent 90%)',
+                   boxShadow: '0 0 80px rgba(59, 130, 246, 0.5), 0 0 160px rgba(59, 130, 246, 0.3)'
+              }"
+            ></div>
+            <div class="relative z-10 aspect-video bg-gray-100/50 dark:bg-black/20 flex items-center justify-center overflow-hidden">
               <img
                 :src="project.image"
                 :alt="project.title"
                 class="w-full h-full object-cover"
               />
             </div>
-            <div class="p-6">
+            <div class="relative z-10 p-6">
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 drop-shadow-md">{{ project.title }}</h3>
               <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm leading-relaxed">{{ project.description }}</p>
               <div class="flex flex-wrap gap-2 mb-4">
@@ -129,9 +143,23 @@
           <div
             v-for="(site, index) in featuredSites"
             :key="site.id"
-            class="bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl site-card"
+            :ref="el => siteCardRefs[index] = el"
+            @mousemove="(event) => handleSiteCardMouseMove(event, index)"
+            @mouseleave="() => handleSiteCardMouseLeave(index)"
+            class="relative bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl site-card"
             :style="{ animationDelay: `${index * 0.1}s` }"
           >
+            <!-- 鼠标跟随效果 -->
+            <div 
+              v-if="siteCardEffects[index]?.show"
+              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+              :style="{
+                left: siteCardEffects[index]?.x - 80 + 'px',
+                top: siteCardEffects[index]?.y - 80 + 'px',
+                background: 'radial-gradient(circle, rgba(34, 197, 94, 0.6) 0%, rgba(34, 197, 94, 0.3) 30%, rgba(34, 197, 94, 0.15) 60%, transparent 90%)',
+                boxShadow: '0 0 80px rgba(34, 197, 94, 0.5), 0 0 160px rgba(34, 197, 94, 0.3)'
+              }"
+            ></div>
             <div class="aspect-video bg-gray-100/50 dark:bg-black/20 flex items-center justify-center overflow-hidden">
               <img
                 :src="site.image"
@@ -231,7 +259,7 @@
 </style>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, reactive } from 'vue'
 import { Eye, Mail, Code, ArrowRight, ExternalLink, Github, Phone } from 'lucide-vue-next'
 import { usePersonalStore } from '@/stores/personal'
 import { useProjectsStore } from '@/stores/projects'
@@ -239,6 +267,47 @@ import { useSitesStore } from '@/stores/sites'
 import Button from '@/components/ui/Button.vue'
 import Card from '@/components/ui/Card.vue'
 import TenYearPromise from '@/components/ui/TenYearPromise.vue'
+
+const siteCardRefs = ref<HTMLElement[]>([])
+const siteCardEffects = reactive<Record<number, { x: number; y: number; show: boolean }>>({})
+const projectCardRefs = ref<HTMLElement[]>([])
+const projectCardEffects = reactive<Record<number, { x: number; y: number; show: boolean }>>({})
+
+const handleSiteCardMouseMove = (event: MouseEvent, index: number) => {
+  const card = siteCardRefs.value[index]
+  if (!card) return
+  
+  const rect = card.getBoundingClientRect()
+  siteCardEffects[index] = {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
+    show: true
+  }
+}
+
+const handleSiteCardMouseLeave = (index: number) => {
+  if (siteCardEffects[index]) {
+    siteCardEffects[index].show = false
+  }
+}
+
+const handleProjectCardMouseMove = (event: MouseEvent, index: number) => {
+  const card = projectCardRefs.value[index]
+  if (!card) return
+  
+  const rect = card.getBoundingClientRect()
+  projectCardEffects[index] = {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
+    show: true
+  }
+}
+
+const handleProjectCardMouseLeave = (index: number) => {
+  if (projectCardEffects[index]) {
+    projectCardEffects[index].show = false
+  }
+}
 
 
 const personalStore = usePersonalStore()
