@@ -23,7 +23,7 @@
                 <img
                   :src="personalStore.avatar"
                   :alt="personalStore.fullName"
-                  class="w-32 h-32 rounded-full mx-auto object-cover mb-4 hover:scale-105 transition-transform duration-300 ease-out"
+                  class="w-32 h-32 rounded-full mx-auto object-cover mb-4"
                 />
                 <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-1">
                   {{ personalStore.fullName }}
@@ -52,7 +52,7 @@
                       :href="link.url"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="social-link text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 hover:scale-110 hover:rotate-12 transition-all duration-300 ease-out p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:shadow-lg"
+                      class="social-link text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/20"
                       :aria-label="link.platform"
                     >
                       <component :is="getIcon(link.icon)" class="w-5 h-5" />
@@ -82,11 +82,11 @@
             <div class="animate-fade-in-up">
               <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">站点历程</h3>
               <div class="space-y-6">
-                <div v-for="(experience, index) in experiences" :key="index" class="relative timeline-item hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 -m-3 transition-all duration-300 ease-out hover:scale-[1.02]">
+                <div v-for="(experience, index) in experiences" :key="index" class="relative timeline-item hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 -m-3">
                   <div class="timeline-content">
                     <div class="flex items-start">
                       <div class="flex-shrink-0">
-                        <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mt-2 timeline-dot hover:bg-blue-500 dark:hover:bg-blue-400 hover:scale-150 transition-all duration-300 ease-out"></div>
+                        <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mt-2 timeline-dot"></div>
                       </div>
                     <div class="ml-4">
                       <div class="pb-6">
@@ -129,7 +129,7 @@
                 <div
                   v-for="interest in interests"
                   :key="interest.name"
-                  class="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:scale-105 transition-all duration-200 ease-out cursor-default"
+                  class="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-default"
                 >
                   <component :is="interest.icon" class="w-4 h-4" />
                   <span class="text-sm">{{ interest.name }}</span>
@@ -142,17 +142,17 @@
               <h3 class="text-xl font-medium text-gray-900 dark:text-white mb-4">联系我</h3>
               <div class="space-y-3">
                 <div class="flex items-center text-gray-600 dark:text-gray-400">
-                  <Mail class="w-4 h-4 mr-3 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-200" />
+                  <Mail class="w-4 h-4 mr-3" />
                   <a 
                     :href="`mailto:${personalStore.contactEmail}`"
-                    class="hover:text-blue-500 dark:hover:text-blue-400 transition-all duration-200 hover:underline hover:translate-x-1"
+                    class="hover:text-blue-500 dark:hover:text-blue-400 hover:underline"
                   >
                     {{ personalStore.contactEmail }}
                   </a>
                 </div>
                 <div class="flex items-center text-gray-600 dark:text-gray-400">
-                  <MapPin class="w-4 h-4 mr-3 hover:text-green-500 dark:hover:text-green-400 transition-colors duration-200" />
-                  <span class="hover:text-green-500 dark:hover:text-green-400 transition-colors duration-200">{{ personalStore.info.location }}</span>
+                  <MapPin class="w-4 h-4 mr-3" />
+                  <span>{{ personalStore.info.location }}</span>
                 </div>
               </div>
             </div>
@@ -273,13 +273,7 @@ const getIcon = (iconName: string) => {
 .timeline-item:nth-child(5) { animation-delay: 0.5s; }
 .timeline-item:nth-child(6) { animation-delay: 0.6s; }
 
-.timeline-dot {
-  transition: all 0.3s ease;
-}
 
-.timeline-item:hover .timeline-dot {
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
-}
 
 .timeline-line {
   animation: drawLine 0.8s ease-out;
@@ -295,48 +289,9 @@ const getIcon = (iconName: string) => {
   }
 }
 
-.timeline-item:hover .timeline-line {
-  background: linear-gradient(to bottom, #3b82f6, #6366f1);
-}
 
-.timeline-item:hover .timeline-dot {
-  background-color: #3b82f6;
-  transform: scale(1.5);
-}
 
-.social-link {
-  position: relative;
-  overflow: hidden;
-}
 
-.social-link::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
-  z-index: -1;
-}
 
-.social-link:hover::before {
-  width: 40px;
-  height: 40px;
-}
 
-.social-link:hover {
-  transform: scale(1.1) rotate(12deg);
-}
-
-.timeline-line {
-  transition: background-color 0.3s ease;
-}
-
-.timeline-item:hover + .timeline-item .timeline-line {
-  background-color: #3b82f6;
-}
 </style>

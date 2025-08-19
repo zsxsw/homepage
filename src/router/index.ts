@@ -4,6 +4,7 @@ import AboutView from '@/pages/AboutView.vue'
 import ArticlesView from '@/pages/ArticlesView.vue'
 import PortfolioView from '@/pages/PortfolioView.vue'
 import SitesView from '@/pages/SitesView.vue'
+import SponsorView from '@/pages/SponsorView.vue'
 
 // 定义路由配置
 const routes = [
@@ -45,6 +46,14 @@ const routes = [
     component: SitesView,
     meta: {
       title: '我的网站'
+    }
+  },
+  {
+    path: '/sponsor',
+    name: 'sponsor',
+    component: SponsorView,
+    meta: {
+      title: '赞助支持'
     }
   },
 

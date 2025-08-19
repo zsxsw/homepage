@@ -91,7 +91,8 @@ const navigation = [
   { name: '关于我', href: '/about' },
   { name: '文章', href: '/articles' },
   { name: '项目作品', href: '/portfolio' },
-  { name: '我的网站', href: '/sites' }
+  { name: '我的网站', href: '/sites' },
+  { name: '赞助支持', href: '/sponsor' }
 ]
 
 const iconMap = {
