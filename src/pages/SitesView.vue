@@ -65,8 +65,8 @@
                   访问
                 </a>
                 <a
-                  v-if="site.github"
-                  :href="site.github"
+                  v-if="site.githubUrl"
+                  :href="site.githubUrl"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 text-sm font-medium ml-4 drop-shadow-sm"
