@@ -24,7 +24,7 @@
         <div class="qr-codes">
           <div 
             class="qr-card"
-            :ref="el => qrCardRefs[0] = el"
+            :ref="el => qrCardRefs[0] = el as HTMLElement"
             @mousemove="(event) => handleQrCardMouseMove(event, 0)"
             @mouseleave="() => handleQrCardMouseLeave(0)"
           >
@@ -54,7 +54,7 @@
           
           <div 
             class="qr-card"
-            :ref="el => qrCardRefs[1] = el"
+            :ref="el => qrCardRefs[1] = el as HTMLElement"
             @mousemove="(event) => handleQrCardMouseMove(event, 1)"
             @mouseleave="() => handleQrCardMouseLeave(1)"
           >
@@ -83,7 +83,7 @@
           
           <div 
             class="qr-card"
-            :ref="el => qrCardRefs[2] = el"
+            :ref="el => qrCardRefs[2] = el as HTMLElement"
             @mousemove="(event) => handleQrCardMouseMove(event, 2)"
             @mouseleave="() => handleQrCardMouseLeave(2)"
           >

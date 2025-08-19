@@ -79,7 +79,7 @@
             <!-- Bio Section -->
             <div 
               class="relative animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl"
-              :ref="el => aboutCardRefs[0] = el"
+              :ref="el => aboutCardRefs[0] = el as HTMLElement"
               @mousemove="(event) => handleAboutCardMouseMove(event, 0)"
               @mouseleave="() => handleAboutCardMouseLeave(0)"
             >
@@ -108,7 +108,7 @@
             <!-- Experience Timeline -->
             <div 
               class="relative animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl"
-              :ref="el => aboutCardRefs[1] = el"
+              :ref="el => aboutCardRefs[1] = el as HTMLElement"
               @mousemove="(event) => handleAboutCardMouseMove(event, 1)"
               @mouseleave="() => handleAboutCardMouseLeave(1)"
             >
@@ -151,7 +151,7 @@
             <!-- Education -->
             <div 
               class="relative animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl"
-              :ref="el => aboutCardRefs[2] = el"
+              :ref="el => aboutCardRefs[2] = el as HTMLElement"
               @mousemove="(event) => handleAboutCardMouseMove(event, 2)"
               @mouseleave="() => handleAboutCardMouseLeave(2)"
             >
@@ -184,7 +184,7 @@
             <!-- Interests -->
             <div 
               class="relative animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl"
-              :ref="el => aboutCardRefs[3] = el"
+              :ref="el => aboutCardRefs[3] = el as HTMLElement"
               @mousemove="(event) => handleAboutCardMouseMove(event, 3)"
               @mouseleave="() => handleAboutCardMouseLeave(3)"
             >
@@ -215,7 +215,7 @@
             <!-- Contact Section -->
             <div 
               class="relative animate-fade-in-up bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-gray-300/40 dark:border-white/20 shadow-xl"
-              :ref="el => aboutCardRefs[4] = el"
+              :ref="el => aboutCardRefs[4] = el as HTMLElement"
               @mousemove="(event) => handleAboutCardMouseMove(event, 4)"
               @mouseleave="() => handleAboutCardMouseLeave(4)"
             >

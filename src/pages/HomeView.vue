@@ -55,7 +55,7 @@
           <div
             v-for="(project, index) in featuredProjects"
             :key="project.id"
-            :ref="el => projectCardRefs[index] = el"
+            :ref="el => projectCardRefs[index] = el as HTMLElement"
             @mousemove="(event) => handleProjectCardMouseMove(event, index)"
             @mouseleave="() => handleProjectCardMouseLeave(index)"
             class="relative bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl project-card"
@@ -143,7 +143,7 @@
           <div
             v-for="(site, index) in featuredSites"
             :key="site.id"
-            :ref="el => siteCardRefs[index] = el"
+            :ref="el => siteCardRefs[index] = el as HTMLElement"
             @mousemove="(event) => handleSiteCardMouseMove(event, index)"
             @mouseleave="() => handleSiteCardMouseLeave(index)"
             class="relative bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl site-card"

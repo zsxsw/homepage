@@ -82,7 +82,7 @@
           <article 
             v-for="(article, index) in articles" 
             :key="article.id"
-            :ref="el => articleCardRefs[index] = el"
+            :ref="el => articleCardRefs[index] = el as HTMLElement"
             @mousemove="(event) => handleArticleCardMouseMove(event, index)"
             @mouseleave="() => handleArticleCardMouseLeave(index)"
             class="relative bg-white/60 dark:bg-white/10 backdrop-blur-md rounded-xl border border-gray-300/40 dark:border-white/20 overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl"
