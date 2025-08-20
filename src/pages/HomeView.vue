@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
     <!-- Hero Banner Section -->
-    <section class="py-16 lg:py-24 relative overflow-hidden">
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
       <!-- Background blur effect -->
       <div class="absolute inset-0 bg-gradient-to-br from-white/60 via-blue-50/40 to-indigo-100/60 dark:from-gray-900/80 dark:via-blue-900/60 dark:to-purple-900/80 backdrop-blur-3xl"></div>
       <div class="absolute inset-0">
@@ -9,57 +9,83 @@
         <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-3xl"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl"></div>
       </div>
-      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div class="animate-fade-in-up">
-          <SplitText
-            :text="personalStore.fullName"
-            class-name="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-lg"
-            :delay="150"
-            :duration="0.8"
-            ease="power3.out"
-            split-type="chars"
-            :from="{ opacity: 0, y: 60, rotationX: -90 }"
-            :to="{ opacity: 1, y: 0, rotationX: 0 }"
-            :threshold="0.2"
-            text-align="center"
-          />
-          <SplitText
-            :text="personalStore.info.title"
-            class-name="text-xl lg:text-2xl text-blue-600 dark:text-blue-300 mb-6 font-medium drop-shadow-md"
-            :delay="100"
-            :duration="0.6"
-            ease="power2.out"
-            split-type="words"
-            :from="{ opacity: 0, y: 30, scale: 0.8 }"
-            :to="{ opacity: 1, y: 0, scale: 1 }"
-            :threshold="0.1"
-            text-align="center"
-          />
-          <SplitText
-            :text="personalStore.info.bio"
-            class-name="text-lg text-gray-700 dark:text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-sm"
-            :delay="80"
-            :duration="0.5"
-            ease="power2.out"
-            split-type="words"
-            :from="{ opacity: 0, y: 20 }"
-            :to="{ opacity: 1, y: 0 }"
-            :threshold="0.1"
-            text-align="center"
-          />
-          <div class="flex flex-wrap gap-4 justify-center">
-            <a
-              v-for="link in personalStore.info.socialLinks"
-              :key="link.platform"
-              :href="link.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center px-6 py-3 text-gray-900 dark:text-white bg-white/20 dark:bg-white/10 backdrop-blur-md border border-gray-300/30 dark:border-white/20 rounded-lg hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-400/40 dark:hover:border-white/30 transition-all duration-300 shadow-lg"
-            >
-              <Github v-if="link.icon === 'github'" class="w-5 h-5 mr-2" />
-              <ExternalLink v-else-if="link.icon === 'globe'" class="w-5 h-5 mr-2" />
-              {{ link.platform }}
-            </a>
+      
+      <!-- Main Content -->
+      <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <!-- Avatar (Mobile First) -->
+        <div class="flex-shrink-0 mb-8 lg:mb-0 lg:order-2 lg:ml-12">
+          <div class="relative">
+            <div class="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white/20 dark:border-white/10 shadow-2xl backdrop-blur-sm">
+              <img
+                :src="personalStore.info.avatar"
+                :alt="personalStore.fullName"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Glow effect around avatar -->
+            <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl -z-10"></div>
+          </div>
+        </div>
+        
+        <!-- Profile Info -->
+        <div class="flex-1 max-w-2xl text-center lg:text-left lg:order-1">
+          <div class="animate-fade-in-up">
+            <div class="mb-6">
+              <SplitText
+                :text="personalStore.info.title"
+                class-name="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white"
+                :delay="100"
+                :duration="0.8"
+                ease="power3.out"
+                split-type="chars"
+                :from="{ opacity: 0, y: 60, rotationX: -90 }"
+                :to="{ opacity: 1, y: 0, rotationX: 0 }"
+                :threshold="0.2"
+                text-align="left"
+              />
+            </div>
+            
+            <SplitText
+              :text="`我是${personalStore.fullName}`"
+              class-name="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-4"
+              :delay="120"
+              :duration="0.6"
+              ease="power2.out"
+              split-type="chars"
+              :from="{ opacity: 0, y: 30, scale: 0.8 }"
+              :to="{ opacity: 1, y: 0, scale: 1 }"
+              :threshold="0.1"
+              text-align="left"
+            />
+            
+            <SplitText
+              :text="personalStore.info.bio"
+              class-name="text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed"
+              :delay="80"
+              :duration="0.5"
+              ease="power2.out"
+              split-type="words"
+              :from="{ opacity: 0, y: 20 }"
+              :to="{ opacity: 1, y: 0 }"
+              :threshold="0.1"
+              text-align="left"
+            />
+            
+            <!-- Social Links -->
+            <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+              <a
+                v-for="link in personalStore.info.socialLinks"
+                :key="link.platform"
+                :href="link.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 dark:text-white bg-white/20 dark:bg-white/10 backdrop-blur-md border border-gray-300/30 dark:border-white/20 rounded-lg hover:bg-white/30 dark:hover:bg-white/20 hover:border-gray-400/40 dark:hover:border-white/30 transition-all duration-300 shadow-lg"
+              >
+                <Github v-if="link.icon === 'github'" class="w-4 h-4 mr-2" />
+                <ExternalLink v-else-if="link.icon === 'globe'" class="w-4 h-4 mr-2" />
+                {{ link.platform }}
+              </a>
+            </div>
           </div>
         </div>
       </div>
