@@ -1,9 +1,9 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 relative">
+  <div class="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-blue-50 dark:from-gray-900 dark:via-blue-900 dark:to-blue-900 relative">
     <!-- Background blur effects -->
     <div class="absolute inset-0 overflow-hidden">
       <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl"></div>
-      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl"></div>
+      <div class="hidden absolute -bottom-40 -left-40 w-80 h-80 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl"></div>
       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-300/10 dark:bg-pink-500/5 rounded-full blur-3xl"></div>
     </div>
     
@@ -86,7 +86,7 @@
               <!-- 鼠标跟随效果 -->
               <div 
                 v-if="aboutCardEffects[0]?.show"
-                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0"
                 :style="{
                   left: aboutCardEffects[0]?.x - 80 + 'px',
                    top: aboutCardEffects[0]?.y - 80 + 'px',
@@ -115,7 +115,7 @@
               <!-- 鼠标跟随效果 -->
               <div 
                 v-if="aboutCardEffects[1]?.show"
-                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0"
                 :style="{
                   left: aboutCardEffects[1]?.x - 80 + 'px',
                    top: aboutCardEffects[1]?.y - 80 + 'px',
@@ -158,7 +158,7 @@
               <!-- 鼠标跟随效果 -->
               <div 
                 v-if="aboutCardEffects[2]?.show"
-                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0"
                 :style="{
                   left: aboutCardEffects[2]?.x - 80 + 'px',
                    top: aboutCardEffects[2]?.y - 80 + 'px',
@@ -191,7 +191,7 @@
               <!-- 鼠标跟随效果 -->
               <div 
                 v-if="aboutCardEffects[3]?.show"
-                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0"
                 :style="{
                   left: aboutCardEffects[3]?.x - 80 + 'px',
                    top: aboutCardEffects[3]?.y - 80 + 'px',
@@ -222,7 +222,7 @@
               <!-- 鼠标跟随效果 -->
               <div 
                 v-if="aboutCardEffects[4]?.show"
-                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+                class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0"
                 :style="{
                   left: aboutCardEffects[4]?.x - 80 + 'px',
                    top: aboutCardEffects[4]?.y - 80 + 'px',

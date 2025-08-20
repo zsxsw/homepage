@@ -105,13 +105,12 @@ const props = withDefaults(defineProps<Props>(), {
   enableStars: true,
   enableSpotlight: true,
   enableBorderGlow: true,
-  disableAnimations: false,
-  spotlightRadius: 300,
-  particleCount: 8,
-  enableTilt: true,
-  glowColor: '59, 130, 246',
+  enableTilt: false,
+  enableMagnetism: false,
   clickEffect: true,
-  enableMagnetism: true
+  spotlightRadius: 250,
+  particleCount: 6,
+  glowColor: '132, 0, 255'
 })
 
 const cardRef = ref<HTMLElement>()

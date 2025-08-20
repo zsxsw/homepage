@@ -10,17 +10,17 @@
       <div class="fixed inset-0 w-full h-full bg-black z-0">
         <DotGrid 
           ref="dotGridRef"
-          :dot-size="12" 
-          :gap="28" 
-          base-color="#4B5563" 
-          active-color="#6B7280" 
-          :proximity="180" 
-          :speed-trigger="80" 
-          :shock-radius="200" 
-          :shock-strength="3" 
-          :max-speed="3000" 
-          :resistance="600" 
-          :return-duration="2.0" 
+          :dot-size="4" 
+          :gap="20" 
+          base-color="#6B7280" 
+          active-color="#9CA3AF" 
+          :proximity="120" 
+          :speed-trigger="60" 
+          :shock-radius="80" 
+          :shock-strength="0.8" 
+          :max-speed="2000" 
+          :resistance="800" 
+          :return-duration="1.5" 
           class="w-full h-full" 
         />
       </div>
@@ -39,7 +39,7 @@
               />
             </div>
             <!-- Glow effect around avatar -->
-            <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl -z-10"></div>
+            <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-blue-500/20 blur-xl -z-10"></div>
           </div>
         </div>
         
@@ -132,7 +132,7 @@
             :click-effect="true"
             :spotlight-radius="250"
             :particle-count="6"
-            glow-color="59, 130, 246"
+            glow-color="132, 0, 255"
             :style="{ animationDelay: `${index * 0.1}s` }"
             class="project-card"
           >
@@ -216,7 +216,7 @@
             <!-- 鼠标跟随效果 -->
             <div 
               v-if="siteCardEffects[index]?.show"
-              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0"
               :style="{
                 left: siteCardEffects[index]?.x - 80 + 'px',
                 top: siteCardEffects[index]?.y - 80 + 'px',

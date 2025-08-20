@@ -86,21 +86,37 @@ interface Props {
   enableTilt?: boolean
   enableMagnetism?: boolean
   clickEffect?: boolean
+  rippleOnClick?: boolean
+  glowColor?: string
+  borderGlowOpacity?: number
   spotlightRadius?: number
   particleCount?: number
-  glowColor?: string
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<{
+  enableStars?: boolean
+  enableSpotlight?: boolean
+  enableBorderGlow?: boolean
+  enableTilt?: boolean
+  enableMagnetism?: boolean
+  clickEffect?: boolean
+  rippleOnClick?: boolean
+  glowColor?: string
+  borderGlowOpacity?: number
+  spotlightRadius?: number
+  particleCount?: number
+}>(), {
   enableStars: true,
   enableSpotlight: true,
   enableBorderGlow: true,
-  enableTilt: false,
-  enableMagnetism: false,
+  enableTilt: true,
+  enableMagnetism: true,
   clickEffect: true,
-  spotlightRadius: 250,
-  particleCount: 6,
-  glowColor: '59, 130, 246'
+  rippleOnClick: true,
+  glowColor: '132, 0, 255',
+  borderGlowOpacity: 0.5,
+  spotlightRadius: 300,
+  particleCount: 8,
 })
 
 const cardRef = ref<HTMLElement>()

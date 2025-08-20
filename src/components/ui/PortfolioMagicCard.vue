@@ -37,7 +37,7 @@
     <!-- Click Ripple Effect -->
     <div
       v-if="clickEffect && ripple.show"
-      class="absolute rounded-full bg-white/30 pointer-events-none animate-ping"
+      class="absolute rounded-full bg-white/30 pointer-events-none"
       :style="{
         left: ripple.x - 20 + 'px',
         top: ripple.y - 20 + 'px',
@@ -139,16 +139,32 @@ interface Props {
   disableAnimations?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<{
+  project: Project
+  enableStars?: boolean
+  enableSpotlight?: boolean
+  enableBorderGlow?: boolean
+  enableTilt?: boolean
+  enableMagnetism?: boolean
+  clickEffect?: boolean
+  rippleOnClick?: boolean
+  glowColor?: string
+  borderGlowOpacity?: number
+  spotlightRadius?: number
+  particleCount?: number
+  disableAnimations?: boolean
+}>(), {
   enableStars: true,
   enableSpotlight: true,
   enableBorderGlow: true,
-  enableTilt: true,
+  enableTilt: false,
   enableMagnetism: false,
   clickEffect: true,
+  rippleOnClick: true,
+  glowColor: '132, 0, 255',
+  borderGlowOpacity: 0.5,
   spotlightRadius: 300,
   particleCount: 12,
-  glowColor: '132, 0, 255',
   disableAnimations: false
 })
 

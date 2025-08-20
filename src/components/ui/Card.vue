@@ -8,7 +8,7 @@
     <!-- 鼠标跟随效果 -->
     <div 
       v-if="showEffect"
-      class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
+      class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0"
       :style="{
         left: mouseX - 80 + 'px',
         top: mouseY - 80 + 'px',
