@@ -25,13 +25,13 @@ body {
   @apply bg-gray-900 text-gray-200;
 }
 
-/* 覆盖默认的白色背景 */
-.bg-white {
-  @apply bg-gray-900 !important;
+/* 仅在深色模式下覆盖白色背景，浅色模式保持纯白 */
+.dark .bg-white {
+  background-color: #111827 !important; /* gray-900 */
 }
 
 .light .bg-white {
-  @apply bg-gray-800 !important;
+  background-color: #ffffff !important;
 }
 
 /* 渐变背景覆盖 */

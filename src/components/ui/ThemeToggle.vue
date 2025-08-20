@@ -1,14 +1,14 @@
 <template>
   <button
     @click="toggleTheme"
-    class="p-2 rounded bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none"
+    class="p-2 rounded bg-gray-300/80 dark:bg-gray-800 hover:bg-gray-400/90 dark:hover:bg-gray-700 transition-colors focus:outline-none"
     :title="isDark ? '切换到浅色模式' : '切换到深色模式'"
   >
     <div class="w-5 h-5">
       <!-- 太阳图标 (浅色模式) -->
       <svg
         v-show="!isDark"
-        class="w-5 h-5 text-gray-600 dark:text-gray-400"
+        class="w-5 h-5 text-gray-900 dark:text-gray-400"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -24,7 +24,7 @@
       <!-- 月亮图标 (深色模式) -->
       <svg
         v-show="isDark"
-        class="w-5 h-5 text-gray-600 dark:text-gray-400"
+        class="w-5 h-5 text-gray-900 dark:text-gray-400"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
