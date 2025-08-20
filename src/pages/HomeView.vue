@@ -99,7 +99,7 @@
                   rel="noopener noreferrer"
                   class="text-blue-600 dark:text-blue-300 hover:text-blue-700 dark:hover:text-blue-200 transition-colors duration-200 font-medium"
                 >
-                  过一步了解 >
+                  访问>
                 </a>
                 <a
                   v-if="project.githubUrl"
@@ -186,7 +186,7 @@
                   rel="noopener noreferrer"
                   class="text-blue-600 dark:text-blue-300 hover:text-blue-700 dark:hover:text-blue-200 transition-colors duration-200 font-medium"
                 >
-                  过一步了解 >
+                  访问>
                 </a>
                 <a
                   v-if="site.githubUrl"
