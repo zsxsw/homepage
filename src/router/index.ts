@@ -5,6 +5,7 @@ import ArticlesView from '@/pages/ArticlesView.vue'
 import PortfolioView from '@/pages/PortfolioView.vue'
 import SitesView from '@/pages/SitesView.vue'
 import SponsorView from '@/pages/SponsorView.vue'
+import MagicBentoDemo from '@/pages/MagicBentoDemo.vue'
 
 // 定义路由配置
 const routes = [
@@ -56,7 +57,14 @@ const routes = [
       title: '赞助支持'
     }
   },
-
+  {
+    path: '/magic-bento',
+    name: 'magic-bento',
+    component: MagicBentoDemo,
+    meta: {
+      title: 'Magic Bento 演示'
+    }
+  }
 ]
 
 // 创建路由实例

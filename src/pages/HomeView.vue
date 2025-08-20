@@ -11,15 +11,42 @@
       </div>
       <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="animate-fade-in-up">
-          <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-lg">
-            {{ personalStore.fullName }}
-          </h1>
-          <p class="text-xl lg:text-2xl text-blue-600 dark:text-blue-300 mb-6 font-medium drop-shadow-md">
-            {{ personalStore.info.title }}
-          </p>
-          <p class="text-lg text-gray-700 dark:text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
-            {{ personalStore.info.bio }}
-          </p>
+          <SplitText
+            :text="personalStore.fullName"
+            class-name="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-lg"
+            :delay="150"
+            :duration="0.8"
+            ease="power3.out"
+            split-type="chars"
+            :from="{ opacity: 0, y: 60, rotationX: -90 }"
+            :to="{ opacity: 1, y: 0, rotationX: 0 }"
+            :threshold="0.2"
+            text-align="center"
+          />
+          <SplitText
+            :text="personalStore.info.title"
+            class-name="text-xl lg:text-2xl text-blue-600 dark:text-blue-300 mb-6 font-medium drop-shadow-md"
+            :delay="100"
+            :duration="0.6"
+            ease="power2.out"
+            split-type="words"
+            :from="{ opacity: 0, y: 30, scale: 0.8 }"
+            :to="{ opacity: 1, y: 0, scale: 1 }"
+            :threshold="0.1"
+            text-align="center"
+          />
+          <SplitText
+            :text="personalStore.info.bio"
+            class-name="text-lg text-gray-700 dark:text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-sm"
+            :delay="80"
+            :duration="0.5"
+            ease="power2.out"
+            split-type="words"
+            :from="{ opacity: 0, y: 20 }"
+            :to="{ opacity: 1, y: 0 }"
+            :threshold="0.1"
+            text-align="center"
+          />
           <div class="flex flex-wrap gap-4 justify-center">
             <a
               v-for="link in personalStore.info.socialLinks"
@@ -52,34 +79,29 @@
         </div>
         
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div
+          <ProjectMagicCard
             v-for="(project, index) in featuredProjects"
             :key="project.id"
-            :ref="el => projectCardRefs[index] = el as HTMLElement"
-            @mousemove="(event) => handleProjectCardMouseMove(event, index)"
-            @mouseleave="() => handleProjectCardMouseLeave(index)"
-            class="relative bg-white/60 dark:bg-white/10 backdrop-blur-md border border-gray-300/40 dark:border-white/20 rounded-2xl overflow-hidden hover:bg-white/70 dark:hover:bg-white/15 hover:border-gray-400/50 dark:hover:border-white/30 transition-all duration-300 shadow-xl hover:shadow-2xl project-card"
+            :enable-stars="true"
+            :enable-spotlight="true"
+            :enable-border-glow="true"
+            :enable-tilt="true"
+            :enable-magnetism="true"
+            :click-effect="true"
+            :spotlight-radius="250"
+            :particle-count="6"
+            glow-color="59, 130, 246"
             :style="{ animationDelay: `${index * 0.1}s` }"
+            class="project-card"
           >
-            <!-- 鼠标跟随效果 -->
-            <div 
-              v-if="projectCardEffects[index]?.show"
-              class="absolute w-40 h-40 rounded-full blur-2xl transition-all duration-75 ease-out pointer-events-none z-0 animate-pulse"
-              :style="{
-                left: projectCardEffects[index]?.x - 80 + 'px',
-                   top: projectCardEffects[index]?.y - 80 + 'px',
-                   background: 'radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(59, 130, 246, 0.3) 30%, rgba(59, 130, 246, 0.15) 60%, transparent 90%)',
-                   boxShadow: '0 0 80px rgba(59, 130, 246, 0.5), 0 0 160px rgba(59, 130, 246, 0.3)'
-              }"
-            ></div>
-            <div class="relative z-10 aspect-video bg-gray-100/50 dark:bg-black/20 flex items-center justify-center overflow-hidden">
+            <div class="aspect-video bg-gray-100/50 dark:bg-black/20 flex items-center justify-center overflow-hidden">
               <img
                 :src="project.image"
                 :alt="project.title"
                 class="w-full h-full object-cover"
               />
             </div>
-            <div class="relative z-10 p-6">
+            <div class="p-6">
               <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 drop-shadow-md">{{ project.title }}</h3>
               <p class="text-gray-700 dark:text-gray-200 mb-4 text-sm leading-relaxed">{{ project.description }}</p>
               <div class="flex flex-wrap gap-2 mb-4">
@@ -112,7 +134,7 @@
                 </a>
               </div>
             </div>
-          </div>
+          </ProjectMagicCard>
         </div>
         
         <div class="mt-8 text-center">
@@ -267,11 +289,11 @@ import { useSitesStore } from '@/stores/sites'
 import Button from '@/components/ui/Button.vue'
 import Card from '@/components/ui/Card.vue'
 import TenYearPromise from '@/components/ui/TenYearPromise.vue'
+import SplitText from '@/components/SplitText.vue'
+import ProjectMagicCard from '@/components/ui/ProjectMagicCard.vue'
 
 const siteCardRefs = ref<HTMLElement[]>([])
 const siteCardEffects = reactive<Record<number, { x: number; y: number; show: boolean }>>({})
-const projectCardRefs = ref<HTMLElement[]>([])
-const projectCardEffects = reactive<Record<number, { x: number; y: number; show: boolean }>>({})
 
 const handleSiteCardMouseMove = (event: MouseEvent, index: number) => {
   const card = siteCardRefs.value[index]
@@ -288,24 +310,6 @@ const handleSiteCardMouseMove = (event: MouseEvent, index: number) => {
 const handleSiteCardMouseLeave = (index: number) => {
   if (siteCardEffects[index]) {
     siteCardEffects[index].show = false
-  }
-}
-
-const handleProjectCardMouseMove = (event: MouseEvent, index: number) => {
-  const card = projectCardRefs.value[index]
-  if (!card) return
-  
-  const rect = card.getBoundingClientRect()
-  projectCardEffects[index] = {
-    x: event.clientX - rect.left,
-    y: event.clientY - rect.top,
-    show: true
-  }
-}
-
-const handleProjectCardMouseLeave = (index: number) => {
-  if (projectCardEffects[index]) {
-    projectCardEffects[index].show = false
   }
 }
 
