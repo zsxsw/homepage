@@ -1,14 +1,8 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
+  <div class="min-h-screen bg-black">
     <!-- Hero Banner Section -->
     <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <!-- Background blur effect -->
-      <div class="absolute inset-0 bg-gradient-to-br from-white/60 via-blue-50/40 to-indigo-100/60 dark:from-gray-900/80 dark:via-blue-900/60 dark:to-purple-900/80 backdrop-blur-3xl"></div>
-      <div class="absolute inset-0">
-        <div class="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 dark:bg-blue-500/20 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/20 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/5 dark:bg-indigo-500/10 rounded-full blur-3xl"></div>
-      </div>
+
       
       <!-- Main Content -->
       <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
