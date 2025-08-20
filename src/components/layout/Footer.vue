@@ -81,7 +81,8 @@
       <div class="border-t border-gray-300/50 dark:border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
         <p class="text-gray-500 dark:text-gray-400 text-sm">
           &copy; {{ currentYear }} {{ personalStore.fullName }}. 保留所有权利。<br/>
-          <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors" href="https://beian.miit.gov.cn" target="_blank">京ICP备2025138063号</a>
+          <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors" href="https://beian.miit.gov.cn" target="_blank">京ICP备2025138063号</a><br/>
+          Fishcpy Home V1
         </p>
         <p class="text-gray-500 dark:text-gray-400 text-sm mt-2 md:mt-0">
           使用 Vue 3 + TypeScript 构建<br/>
