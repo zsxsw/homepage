@@ -1,7 +1,29 @@
 <template>
-  <div class="min-h-screen bg-black">
+  <div 
+    class="min-h-screen bg-black" 
+    @mousemove="handleGlobalMouseMove"
+    @mouseleave="handleGlobalMouseLeave"
+  >
     <!-- Hero Banner Section -->
-    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <!-- DotGrid Background -->
+      <div class="fixed inset-0 w-full h-full bg-black z-0">
+        <DotGrid 
+          ref="dotGridRef"
+          :dot-size="12" 
+          :gap="28" 
+          base-color="#4B5563" 
+          active-color="#6B7280" 
+          :proximity="180" 
+          :speed-trigger="80" 
+          :shock-radius="200" 
+          :shock-strength="3" 
+          :max-speed="3000" 
+          :resistance="600" 
+          :return-duration="2.0" 
+          class="w-full h-full" 
+        />
+      </div>
 
       
       <!-- Main Content -->
@@ -105,7 +127,7 @@
             :enable-stars="true"
             :enable-spotlight="true"
             :enable-border-glow="true"
-            :enable-tilt="true"
+            :enable-tilt="false"
             :enable-magnetism="true"
             :click-effect="true"
             :spotlight-radius="250"
@@ -310,8 +332,10 @@ import Button from '@/components/ui/Button.vue'
 import Card from '@/components/ui/Card.vue'
 import TenYearPromise from '@/components/ui/TenYearPromise.vue'
 import SplitText from '@/components/SplitText.vue'
-import ProjectMagicCard from '@/components/ui/ProjectMagicCard.vue'
+import ProjectMagicCard from '@/components/vue-bits/ProjectMagicCard.vue'
+import DotGrid from '@/components/DotGrid.vue'
 
+const dotGridRef = ref<InstanceType<typeof DotGrid>>()
 const siteCardRefs = ref<HTMLElement[]>([])
 const siteCardEffects = reactive<Record<number, { x: number; y: number; show: boolean }>>({})
 
@@ -330,6 +354,18 @@ const handleSiteCardMouseMove = (event: MouseEvent, index: number) => {
 const handleSiteCardMouseLeave = (index: number) => {
   if (siteCardEffects[index]) {
     siteCardEffects[index].show = false
+  }
+}
+
+const handleGlobalMouseMove = (event: MouseEvent) => {
+  if (dotGridRef.value) {
+    dotGridRef.value.handleMouseMove(event)
+  }
+}
+
+const handleGlobalMouseLeave = () => {
+  if (dotGridRef.value) {
+    dotGridRef.value.handleMouseLeave()
   }
 }
 

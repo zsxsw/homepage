@@ -41,7 +41,7 @@
             :enable-stars="true"
             :enable-spotlight="true"
             :enable-border-glow="true"
-            :enable-tilt="true"
+            :enable-tilt="false"
             :enable-magnetism="false"
             :click-effect="true"
             :spotlight-radius="300"
