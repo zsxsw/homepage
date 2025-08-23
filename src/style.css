@@ -20,9 +20,9 @@ body {
   @apply bg-black text-gray-100;
 }
 
-/* 浅色模式下的深灰色主题 */
+/* 浅色模式下的浅色主题 */
 .light body {
-  @apply bg-gray-900 text-gray-200;
+  @apply bg-gray-50 text-gray-900;
 }
 
 /* 仅在深色模式下覆盖白色背景，浅色模式保持纯白 */
@@ -40,7 +40,7 @@ body {
 }
 
 .light .bg-gradient-to-br {
-  @apply bg-gray-900 !important;
+  background: inherit !important;
 }
 
 .from-gray-50 {
@@ -56,15 +56,22 @@ body {
 }
 
 .light .from-gray-50 {
-  @apply from-gray-800 !important;
+  --tw-gradient-from: #f9fafb !important;
+  --tw-gradient-to: rgb(249 250 251 / 0) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
 }
 
 .light .via-blue-50 {
-  @apply via-gray-700 !important;
+  --tw-gradient-to: rgb(239 246 255 / 0) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), #eff6ff, var(--tw-gradient-to) !important;
 }
 
 .light .to-purple-50 {
-  @apply to-gray-600 !important;
+  --tw-gradient-to: #faf5ff !important;
+}
+
+.light .to-blue-50 {
+  --tw-gradient-to: #eff6ff !important;
 }
 
 .dark\:bg-white\/10 {
@@ -111,19 +118,19 @@ body {
 
 /* 背景模糊效果调整 */
 .bg-white\/30 {
-  @apply bg-gray-900/30 !important;
+  background-color: rgba(17, 24, 39, 0.3) !important;
 }
 
 .light .bg-white\/30 {
-  @apply bg-gray-800/30 !important;
+  background-color: rgba(255, 255, 255, 0.3) !important;
 }
 
 .bg-white\/20 {
-  @apply bg-gray-900/20 !important;
+  background-color: rgba(17, 24, 39, 0.2) !important;
 }
 
 .light .bg-white\/20 {
-  @apply bg-gray-800/20 !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .dark\:bg-black\/10 {
@@ -230,13 +237,18 @@ body {
   background-color: #f9fafb !important;
 }
 
+/* 修复浅色模式下页面背景 */
+:root:not(.dark) .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, var(--tw-gradient-stops)) !important;
+}
+
 /* 通用卡片组件浅色模式优化 */
 :root:not(.dark) .bg-white\/60 {
-  background-color: rgba(255, 255, 255, 0.9) !important;
+  background-color: rgba(255, 255, 255, 0.6) !important;
 }
 
 :root:not(.dark) .bg-white\/10 {
-  background-color: rgba(255, 255, 255, 0.95) !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* 卡片边框在浅色模式下的优化 - 更柔和的边框 */
@@ -251,20 +263,20 @@ body {
 
 /* 项目卡片技术标签在浅色模式下的优化 */
 :root:not(.dark) .bg-gray-200\/60 {
-  background-color: rgba(31, 41, 55, 0.8) !important;
+  background-color: rgba(229, 231, 235, 0.6) !important;
 }
 
 :root:not(.dark) .text-gray-800 {
-  color: #f9fafb !important;
+  color: #1f2937 !important;
 }
 
 /* 兴趣爱好标签在浅色模式下的优化 */
 :root:not(.dark) .bg-white\/40 {
-  background-color: rgba(31, 41, 55, 0.8) !important;
+  background-color: rgba(255, 255, 255, 0.4) !important;
 }
 
 :root:not(.dark) .bg-white\/5 {
-  background-color: rgba(31, 41, 55, 0.9) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 /* 标签边框在浅色模式下的优化 - 更柔和的边框 */
@@ -284,10 +296,7 @@ body {
   border-color: rgba(75, 85, 99, 0.3) !important;
 }
 
-/* 网站卡片技术标签在浅色模式下的优化 */
-:root:not(.dark) .bg-white\/20 {
-  background-color: rgba(31, 41, 55, 0.85) !important;
-}
+/* 网站卡片技术标签在浅色模式下的优化 - 已在上面定义 */
 
 /* 标签边框在浅色模式下的进一步优化 - 更柔和的边框 */
 :root:not(.dark) .border-gray-300\/40 {
@@ -312,23 +321,7 @@ body {
 }
 
 /* 修复文章和关于页面在浅色模式下的深色元素问题 */
-/* 重置文章卡片背景 */
-:root:not(.dark) .bg-white\/60 {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-}
-
-:root:not(.dark) .bg-white\/10 {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* 重置文章页面背景模糊效果 */
-:root:not(.dark) .bg-white\/30 {
-  background-color: rgba(255, 255, 255, 0.8) !important;
-}
-
-:root:not(.dark) .bg-white\/20 {
-  background-color: rgba(255, 255, 255, 0.7) !important;
-}
+/* 这些样式已在上面定义，删除重复 */
 
 /* 修复文章分类标签 - 更柔和的边框 */
 :root:not(.dark) .bg-blue-200\/60 {

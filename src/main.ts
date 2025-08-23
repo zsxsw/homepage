@@ -14,5 +14,14 @@ const pinia = createPinia()
 app.use(pinia)
 app.use(router)
 
+// 处理404页面重定向
+router.isReady().then(() => {
+  const redirectPath = sessionStorage.getItem('redirectPath')
+  if (redirectPath) {
+    sessionStorage.removeItem('redirectPath')
+    router.push(redirectPath)
+  }
+})
+
 // 挂载应用
 app.mount('#app')
