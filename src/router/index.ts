@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import HomeView from '@/pages/HomeView.vue'
 import AboutView from '@/pages/AboutView.vue'
 import ArticlesView from '@/pages/ArticlesView.vue'
@@ -7,7 +7,7 @@ import SitesView from '@/pages/SitesView.vue'
 import SponsorView from '@/pages/SponsorView.vue'
 
 // 定义路由配置
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
