@@ -1,12 +1,11 @@
 import type { Article, RSSFeed } from '@/types'
 
 export class RSSService {
-  private static readonly RSS_URL = 'https://blog.fis.ink/rss.xml'
-  private static readonly CORS_PROXY = 'https://api.allorigins.win/raw?url='
+  private static readonly RSS_URL = 'https://api.fis.ink/fishcpy/v1/fishcpyblog-rss'
 
   static async fetchArticles(): Promise<Article[]> {
     try {
-      const response = await fetch(`${this.CORS_PROXY}${encodeURIComponent(this.RSS_URL)}`)
+      const response = await fetch(`${(this.RSS_URL)}`)
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
