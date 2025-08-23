@@ -59,7 +59,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    redirect: '/'
+    component: HomeView,
+    meta: {
+      title: '首页'
+    }
   }
 ]
 
