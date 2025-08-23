@@ -35,7 +35,7 @@
       ></div>
     </div>
     
-    <main class="flex-1 relative z-10">
+    <main class="flex-1 relative z-10 pt-16">
     <Transition 
       :name="transitionName" 
       mode="out-in"
