@@ -1,90 +1,75 @@
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/30 dark:border-gray-700/30 shadow-lg transition-all duration-300">
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/30 dark:bg-gray-900/30 backdrop-blur-md border-b border-gray-300/20 dark:border-gray-700/20">
+    <nav class="max-w-7xl mx-auto px-6">
       <div class="flex justify-between items-center h-16">
+        <!-- Logo区域 -->
         <div class="flex items-center">
-          <router-link to="/" class="flex items-center space-x-2">
-            <div class="w-8 h-8 rounded-lg overflow-hidden">
-              <img src="https://www.fis.ink/img/logo_c.png" alt="fishcpy logo" class="w-full h-full object-cover" />
+          <router-link to="/" class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-full overflow-hidden">
+              <img 
+                src="https://www.fis.ink/img/logo_c.png" 
+                alt="fishcpy logo" 
+                class="w-full h-full object-cover" 
+              />
             </div>
-            <span class="font-semibold text-xl text-gray-900 dark:text-white">{{ personalStore.fullName }}</span>
+            <span class="font-medium text-gray-900 dark:text-white text-lg">
+              {{ personalStore.fullName }}
+            </span>
           </router-link>
         </div>
         
-        <div class="hidden md:flex items-center space-x-4">
-          <div class="flex items-baseline space-x-8">
-            <router-link
-              v-for="item in navigation"
-              :key="item.name"
-              :to="item.href"
-              :class="[
-                'px-3 py-2 rounded text-sm font-medium',
-                $route.path === item.href
-                  ? 'text-gray-900 dark:text-white border-b border-gray-900 dark:border-white'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-              ]"
-            >
-              {{ item.name }}
-            </router-link>
-          </div>
-          <ThemeToggle />
+        <!-- 中央导航菜单 -->
+        <div class="hidden md:flex items-center bg-gray-200/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full px-1 py-1 border border-gray-400/30 dark:border-gray-600/30">
+          <router-link
+            v-for="item in navigation"
+            :key="item.name"
+            :to="item.href"
+            class="relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200"
+            :class="[
+              $route.path === item.href
+                ? 'text-white bg-blue-500/80 backdrop-blur-sm'
+                : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-300/50 dark:hover:bg-gray-800'
+            ]"
+          >
+            {{ item.name }}
+          </router-link>
         </div>
         
-        <div class="md:hidden flex items-center space-x-2">
+        <!-- 右侧操作区 -->
+        <div class="flex items-center space-x-3">
           <ThemeToggle />
+          
+          <!-- 移动端菜单按钮 -->
           <button
-            @click="mobileMenuOpen = !mobileMenuOpen"
-            class="inline-flex items-center justify-center p-2 rounded text-gray-900 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-300/80 dark:hover:bg-gray-800 focus:outline-none transition-colors duration-200"
-            aria-expanded="false"
+            @click="toggleMobileMenu"
+            class="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
           >
-            <span class="sr-only">打开主菜单</span>
-            <svg
-              :class="[mobileMenuOpen ? 'hidden' : 'block', 'h-6 w-6']"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg
-              :class="[mobileMenuOpen ? 'block' : 'hidden', 'h-6 w-6']"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
       </div>
       
-      <Transition
-        enter-from-class="opacity-0"
-        enter-to-class="opacity-100"
-        leave-from-class="opacity-100"
-        leave-to-class="opacity-0"
-      >
-        <div v-if="mobileMenuOpen" class="md:hidden">
-          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-300/80 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-lg">
-            <router-link
-              v-for="item in navigation"
-              :key="item.name"
-              :to="item.href"
-              :class="[
-                'block px-3 py-2 rounded text-base font-medium transition-colors duration-200',
-                $route.path === item.href
-                  ? 'text-black dark:text-white bg-gray-300/90 dark:bg-gray-800'
-                   : 'text-gray-900 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-200/80 dark:hover:bg-gray-800/50'
-              ]"
-              @click="mobileMenuOpen = false"
-            >
-              {{ item.name }}
-            </router-link>
-          </div>
+      <!-- 移动端菜单 -->
+      <div v-if="mobileMenuOpen" class="md:hidden py-4 border-t border-gray-300 dark:border-gray-700">
+        <div class="space-y-2">
+          <router-link
+            v-for="item in navigation"
+            :key="item.name"
+            :to="item.href"
+            class="block px-4 py-2 text-base font-medium rounded-lg transition-colors"
+            :class="[
+              $route.path === item.href
+                ? 'text-white bg-blue-500/80 backdrop-blur-sm'
+                : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-300/50 dark:hover:bg-gray-800'
+            ]"
+            @click="closeMobileMenu"
+          >
+            {{ item.name }}
+          </router-link>
         </div>
-      </Transition>
+      </div>
     </nav>
   </header>
 </template>
@@ -105,4 +90,13 @@ const navigation = [
   { name: '我的网站', href: '/sites' },
   { name: '赞助支持', href: '/sponsor' }
 ]
+
+// 移动端菜单控制
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+}
+
+const closeMobileMenu = () => {
+  mobileMenuOpen.value = false
+}
 </script>
