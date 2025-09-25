@@ -4,7 +4,10 @@ import AboutView from '@/pages/AboutView.vue'
 import ArticlesView from '@/pages/ArticlesView.vue'
 import PortfolioView from '@/pages/PortfolioView.vue'
 import SitesView from '@/pages/SitesView.vue'
+import FriendsView from '@/pages/FriendsView.vue'
 import SponsorView from '@/pages/SponsorView.vue'
+import CircleView from '@/pages/CircleView.vue'
+import MomentView from '@/pages/MomentView.vue'
 
 // 定义路由配置
 const routes: RouteRecordRaw[] = [
@@ -30,6 +33,30 @@ const routes: RouteRecordRaw[] = [
     component: ArticlesView,
     meta: {
       title: '文章'
+    }
+  },
+  {
+    path: '/friends',
+    name: 'friends',
+    component: FriendsView,
+    meta: {
+      title: '友链'
+    }
+  },
+  {
+    path: '/circle',
+    name: 'friendscircle',
+    component: CircleView,
+    meta: {
+      title: '鱼塘'
+    }
+  },
+  {
+    path: '/moment',
+    name: 'moment',
+    component: MomentView,
+    meta: {
+      title: '动态'
     }
   },
   {

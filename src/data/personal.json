@@ -1,21 +1,31 @@
 {
-  "name": "fishcpy",
+  "name": "钟神秀ZSX",
   "title": "你好👋",
-  "bio": "平时喜欢折腾点新奇的玩意，偶尔做点小网站&小项目。",
-  "avatar": "https://www.fis.ink/img/logo_c.png",
-  "email": "fishcpy@qq.com",
+  "bio": "喜欢看小说，折腾博客，无聊时玩玩单机游戏。",
+  "avatar": "https://img.314926.xyz/images/2025/09/20/zsx-avatar.webp",
+  "email": "zsx@zhzsx.cn",
   "location": "中国",
-  "website": "https://blog.fis.ink",
+  "website": "https://blog.zhzsx.cn",
   "socialLinks": [
     {
       "platform": "GitHub",
-      "url": "https://github.com/fishcpy",
+      "url": "https://github.com/zsxsw",
       "icon": "github"
     },
     {
       "platform": "Blog",
-      "url": "https://blog.fis.ink",
+      "url": "https://blog.zhzsx.cn",
       "icon": "globe"
+    },
+    {
+      "platform": "Telegram",
+      "url": "https://t.me/zhzsx_me",
+      "icon": "send"
+    },
+    {
+      "platform": "Mail",
+      "url": "mailto:zsx@zhzsx.cn",
+      "icon": "mail"
     }
   ]
 }

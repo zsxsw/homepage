@@ -64,7 +64,7 @@ import { usePersonalStore } from '@/stores/personal'
 const personalStore = usePersonalStore()
 
 // 十年之约开始日期
-const startDate = new Date('2024-09-06')
+const startDate = new Date('2025-09-24')
 const currentDate = ref(new Date())
 
 

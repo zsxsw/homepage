@@ -2,21 +2,51 @@
   {
     "id": "1",
     "title": "个人主页",
-    "description": "就是本站啦",
-    "image": "https://api.fis.ink/mc",
+    "description": "fishcpy的主页自用",
+    "image": "https://img.314926.xyz/images/2025/09/22/20250922193025414.webp",
     "technologies": ["Vue3", "TypeScript"],
     "demoUrl": "/",
-    "githubUrl": "https://github.com/fishcpy/small-shop",
+    "githubUrl": "https://github.com/zsxsw/homepage",
     "featured": true
   },
   {
     "id": "2",
-    "title": "项目2",
-    "description": "项目2",
-    "image": "https://api.fis.ink/mc",
-    "technologies": [],
-    "demoUrl": "/",
-    "githubUrl": "https://github.com/fishcpy",
-    "featured": false
-  }
+    "title": "typecho-bearsimple",
+    "description": "基于typecho博客的bearsimple主题",
+    "image": "https://img.314926.xyz/images/2025/09/23/cover-25.webp",
+    "technologies": ["typecho", "博客"],
+    "demoUrl": "https://boke.zhzsx.cn/",
+    "githubUrl": "https://github.com/zsxsw/typecho-bearsimple",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "title": "Frosti-blog",
+    "description": "astro的frosti主题自用",
+    "image": "https://img.314926.xyz/images/2025/09/23/cover-26.webp",
+    "technologies": ["astro", "博客"],
+    "demoUrl": "https://blog.zhzsx.cn/",
+    "githubUrl": "https://github.com/zsxsw/Frosti-blog",
+    "featured": true
+  },
+  {
+    "id": "4",
+    "title": "zsx-SaroProck",
+    "description": "SaroProck主题自用",
+    "image": "https://img.314926.xyz/images/2025/09/23/cover-27.webp",
+    "technologies": ["astro", "博客"],
+    "demoUrl": "https://www.zhzsx.cn/",
+    "githubUrl": "https://github.com/zsxsw/zsx-SaroProck",
+    "featured": true
+  },
+  {
+    "id": "5",
+    "title": "astro-fishcpy",
+    "description": "astro的fishcpy主题自用",
+    "image": "https://img.314926.xyz/images/2025/09/23/cover-27.webp",
+    "technologies": ["astro", "博客"],
+    "demoUrl": "https://blog-v3.zhzsx.cn/",
+    "githubUrl": "https://github.com/zsxsw/zsx-astro-theme-fishcpy",
+    "featured": true
+  }    
 ]

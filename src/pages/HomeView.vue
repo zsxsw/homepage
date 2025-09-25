@@ -99,6 +99,8 @@
               >
                 <Github v-if="link.icon === 'github'" class="w-4 h-4 mr-2" />
                 <ExternalLink v-else-if="link.icon === 'globe'" class="w-4 h-4 mr-2" />
+                <Send v-else-if="link.icon === 'send'" class="w-4 h-4 mr-2" />
+                <Mail v-else-if="link.icon === 'mail'" class="w-4 h-4 mr-2" />
                 {{ link.platform }}
               </a>
             </div>
@@ -285,7 +287,7 @@
             十年之约
           </h2>
           <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            从2024年9月6日开始，记录这段时光
+            从2025年9月24日开始，记录这段时光
           </p>
         </div>
         
@@ -324,7 +326,7 @@
 
 <script setup lang="ts">
 import { computed, ref, reactive } from 'vue'
-import { Eye, Mail, Code, ArrowRight, ExternalLink, Github, Phone } from 'lucide-vue-next'
+import { Eye, Mail, Code, ArrowRight, ExternalLink, Github, Phone, Send } from 'lucide-vue-next'
 import { usePersonalStore } from '@/stores/personal'
 import { useProjectsStore } from '@/stores/projects'
 import { useSitesStore } from '@/stores/sites'

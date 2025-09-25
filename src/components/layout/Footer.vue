@@ -21,7 +21,7 @@
         <div class="col-span-1 md:col-span-2">
           <div class="flex items-center space-x-2 mb-4">
             <div class="w-8 h-8 rounded-lg overflow-hidden">
-              <img src="https://www.fis.ink/img/logo_c.png" alt="fishcpy logo" class="w-full h-full object-cover" />
+              <img src="https://img.314926.xyz/images/2025/09/20/zsx-avatar.webp" alt="ZSX logo" class="w-full h-full object-cover" />
             </div>
             <span class="font-semibold text-xl">{{ personalStore.fullName }}</span>
           </div>
@@ -81,13 +81,7 @@
       <div class="border-t border-gray-300/50 dark:border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
         <p class="text-gray-500 dark:text-gray-400 text-sm">
           &copy; {{ currentYear }} {{ personalStore.fullName }}. 保留所有权利。<br/>
-          <a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors" href="https://beian.miit.gov.cn" target="_blank">京ICP备2025138063号</a><br/>
-          Fishcpy Home V1
-        </p>
-        <p class="text-gray-500 dark:text-gray-400 text-sm mt-2 md:mt-0">
-          使用 Vue 3 + TypeScript 构建<br/>
-          开源于<a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors" href="https://github.com/fishcpy/homepage" target="_blank">GitHub</a><br/>
-          注意是master分支
+          钟神秀的主页
         </p>
       </div>
     </div>
@@ -96,7 +90,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { Mail, MapPin, Github, Linkedin, Twitter, MessageCircle } from 'lucide-vue-next'
+import { Mail, MapPin, Github, Linkedin, Twitter, MessageCircle, Send, Rss } from 'lucide-vue-next'
 import { usePersonalStore } from '@/stores/personal'
 
 const footerRef = ref<HTMLElement>()
@@ -137,10 +131,11 @@ const iconMap = {
   twitter: Twitter,
   'message-circle': MessageCircle,
   mail: Mail,
+  send: Send,
   'map-pin': MapPin
 }
 
 const getIcon = (iconName: string) => {
-  return iconMap[iconName as keyof typeof iconMap] || MessageCircle
+  return iconMap[iconName as keyof typeof iconMap] || Rss
 }
 </script>

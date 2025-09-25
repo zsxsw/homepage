@@ -17,7 +17,7 @@
           项目
         </h1>
         <p class="text-gray-700 dark:text-gray-200 drop-shadow-sm">
-          一些做过的东西
+          我的仓库的一些项目
         </p>
       </div>
     </section>

@@ -7,8 +7,8 @@
           <router-link to="/" class="flex items-center space-x-3">
             <div class="w-8 h-8 rounded-full overflow-hidden">
               <img 
-                src="https://www.fis.ink/img/logo_c.png" 
-                alt="fishcpy logo" 
+                src="https://img.314926.xyz/images/2025/09/20/zsx-avatar.webp" 
+                alt="ZSX logo" 
                 class="w-full h-full object-cover" 
               />
             </div>
@@ -85,6 +85,9 @@ const mobileMenuOpen = ref(false)
 const navigation = [
   { name: '首页', href: '/' },
   { name: '关于我', href: '/about' },
+  { name: '友链', href: '/friends' },
+  { name: '鱼塘', href: '/circle' },
+  { name: '动态', href: '/moment' },
   { name: '文章', href: '/articles' },
   { name: '项目作品', href: '/portfolio' },
   { name: '我的网站', href: '/sites' },
