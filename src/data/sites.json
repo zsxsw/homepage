@@ -6,6 +6,7 @@
     "image": "https://img.314926.xyz/images/2025/09/25/cover-28.webp",
     "technologies": ["Frosti", "Astro"],
     "url": "https://blog.zhzsx.cn",
+    "githubUrl": "https://github.com/zsxsw/Frosti-blog",
     "featured": true,
     "createdAt": "2025-09-15"
   },
@@ -16,6 +17,7 @@
     "image": "https://img.314926.xyz/images/2025/09/25/cover-29.webp",
     "technologies": ["typecho", "博客"],
     "url": "https://boke.zhzsx.cn",
+    "githubUrl": "https://github.com/zsxsw/typecho-bearsimple",
     "featured": true,
     "createdAt": "2025-09-24"
   },
@@ -26,6 +28,7 @@
     "image": "https://img.314926.xyz/images/2025/09/25/cover-30.webp",
     "technologies": ["cloudflare", "短链"],
     "url": "https://sink.zhzsx.cn",
+    "githubUrl": "https://github.com/zsxsw/Sink",
     "featured": true,
     "createdAt": "2025-09-25"
   },
@@ -36,6 +39,7 @@
     "image": "https://img.314926.xyz/images/2025/09/25/cover-31.webp",
     "technologies": ["uptime-status", "监控"],
     "url": "https://status.zhzsx.cn",
+    "githubUrl": "https://github.com/zsxsw/uptime-status",
     "featured": true,
     "createdAt": "2025-09-25"
   }
